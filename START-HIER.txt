@@ -1,0 +1,12 @@
+SICHERKOCHEN STARTEN
+
+1. ZIP entpacken.
+2. Kostenloses GitHub-Konto öffnen.
+3. Neues öffentliches Repository "sicherkochen" erstellen.
+4. Add file -> Upload files.
+5. Alle Dateien AUS dem entpackten Ordner hochladen.
+6. Settings -> Pages -> Deploy from a branch -> main -> /(root) -> Save.
+7. Die angezeigte https-Adresse in Safari öffnen.
+8. Teilen -> Zum Home-Bildschirm -> Hinzufügen.
+
+Die ausführliche Anleitung steht in README.md.
