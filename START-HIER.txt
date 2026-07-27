@@ -1,12 +1,15 @@
-SICHERKOCHEN STARTEN
+SICHERKOCHEN 3.0 AKTUALISIEREN
 
-1. ZIP entpacken.
-2. Kostenloses GitHub-Konto öffnen.
-3. Neues öffentliches Repository "sicherkochen" erstellen.
-4. Add file -> Upload files.
-5. Alle Dateien AUS dem entpackten Ordner hochladen.
-6. Settings -> Pages -> Deploy from a branch -> main -> /(root) -> Save.
-7. Die angezeigte https-Adresse in Safari öffnen.
-8. Teilen -> Zum Home-Bildschirm -> Hinzufügen.
+1. In der bisherigen App: Mehr -> Daten exportieren.
+2. ZIP entpacken.
+3. Im bestehenden GitHub-Repository: Add file -> Upload files.
+4. ALLE Dateien und den Ordner icons aus Version 3.0 hochladen und ersetzen.
+5. Commit changes wählen.
+6. Dieselbe GitHub-Pages-Adresse in Safari öffnen.
+7. Mehr -> App aktualisieren.
+8. Personen und Rezepte bearbeiten und speichern testen.
+9. Unter Rezepte mehrere Personen antippen; ausgewählte Namen tragen ein Häkchen.
+10. Mit einem deutschen Begriff wie "Kartoffelsuppe" suchen.
 
-Die ausführliche Anleitung steht in README.md.
+Die vollständige Anleitung steht in README.md.
+Die durchgeführten Prüfungen stehen in TESTBERICHT.md.

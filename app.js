@@ -1,6 +1,7 @@
 (() => {
   'use strict';
 
+  const APP_VERSION = '3.0.0';
   const app = document.querySelector('#app');
   const modal = document.querySelector('#modal');
   const modalContent = document.querySelector('#modalContent');
@@ -48,6 +49,50 @@
     showToast.timer = setTimeout(() => toast.classList.remove('show'), 2600);
   }
 
+
+  function setFormBusy(form, busy) {
+    if (!form) return;
+    form.querySelectorAll('button').forEach(control => {
+      control.disabled = Boolean(busy);
+    });
+    const submit = form.querySelector('button[type="submit"]');
+    if (submit) {
+      if (busy) {
+        submit.dataset.originalText = submit.textContent;
+        submit.textContent = 'Speichert …';
+      } else if (submit.dataset.originalText) {
+        submit.textContent = submit.dataset.originalText;
+        delete submit.dataset.originalText;
+      }
+    }
+  }
+
+  function showFormError(form, message) {
+    if (!form) return showToast(message);
+    let node = form.querySelector('.form-error');
+    if (!node) {
+      node = document.createElement('div');
+      node.className = 'notice danger form-error';
+      const actions = form.querySelector('.actions');
+      form.insertBefore(node, actions || null);
+    }
+    node.textContent = message;
+    node.scrollIntoView({ block: 'nearest' });
+  }
+
+  async function runFormTask(form, task) {
+    setFormBusy(form, true);
+    form.querySelector('.form-error')?.remove();
+    try {
+      await task();
+    } catch (error) {
+      console.error(error);
+      showFormError(form, error.message || 'Die Änderung konnte nicht gespeichert werden.');
+    } finally {
+      if (document.contains(form)) setFormBusy(form, false);
+    }
+  }
+
   function openModal(html) {
     modalContent.innerHTML = html;
     if (typeof modal.showModal === 'function') modal.showModal();
@@ -79,7 +124,7 @@
   }
 
   async function migrateData() {
-    if (number(state.settings.dataVersion) >= 2) return;
+    if (number(state.settings.dataVersion) >= 3) return;
     const owner = state.profiles.find(profile => profile.role === 'Besitzer') || state.profiles.find(profile => normalize(profile.name) === 'dirk');
     if (owner) {
       const allergyKeys = (owner.allergies || []).map(item => SKOnline.allergyKey(item));
@@ -89,7 +134,11 @@
         state.profiles = state.profiles.map(profile => profile.id === owner.id ? owner : profile);
       }
     }
-    await saveSettings({ dataVersion: 2 });
+    await saveSettings({
+      dataVersion: 3,
+      recipeSource: state.settings.recipeSource || 'themealdb',
+      spoonacularKey: state.settings.spoonacularKey || ''
+    });
   }
 
   async function seedApp() {
@@ -176,7 +225,9 @@
       selectedCuisine: 'Alle',
       onlyPantry: false,
       strictLibrary: false,
-      dataVersion: 2
+      dataVersion: 3,
+      recipeSource: 'themealdb',
+      spoonacularKey: ''
     };
 
     await SKDB.put('profiles', owner);
@@ -193,6 +244,18 @@
   function selectedProfiles() {
     const ids = state.settings.selectedProfiles || [];
     return state.profiles.filter(profile => ids.includes(profile.id));
+  }
+
+
+  function renderPersonSelector({ compact = false } = {}) {
+    const selected = new Set(state.settings.selectedProfiles || []);
+    return `<div class="person-selector ${compact ? 'compact' : ''}">
+      <div class="small"><strong>Mitessende Personen</strong> <span class="muted">Mehrere Namen können gleichzeitig ausgewählt werden.</span></div>
+      <div class="chips" style="margin-top:8px">
+        ${state.profiles.map(profile => `<button type="button" class="chip ${selected.has(profile.id) ? 'active' : ''}" data-action="toggle-person" data-id="${profile.id}" aria-pressed="${selected.has(profile.id)}">${esc(profile.name)}</button>`).join('') || '<span class="muted small">Noch keine Personen angelegt.</span>'}
+      </div>
+      ${selected.size ? `<div class="muted small" style="margin-top:7px">Ausgewählt: ${esc(state.profiles.filter(profile => selected.has(profile.id)).map(profile => profile.name).join(', '))}</div>` : '<div class="notice danger" style="margin-top:8px">Bitte mindestens eine Person auswählen.</div>'}
+    </div>`;
   }
 
   function dietAllows(recipeDiet, personDiet) {
@@ -347,7 +410,7 @@
     const labels = SKOnline.statusLabels;
     return `<article class="card recipe-card online-card">
       <div class="recipe-top">
-        <div class="recipe-title-wrap">${recipe.image ? `<img class="recipe-thumb" src="${attr(safeUrl(recipe.image))}" alt="" loading="lazy">` : '<div class="recipe-icon">🌐</div>'}<div><h3>${esc(recipe.name)}</h3><div class="meta"><span>${esc(recipe.cuisine)}</span><span>${esc(recipe.meal)}</span><span>Online</span></div></div></div>
+        <div class="recipe-title-wrap">${recipe.image ? `<img class="recipe-thumb" src="${attr(safeUrl(recipe.image))}" alt="" loading="lazy">` : '<div class="recipe-icon">🌐</div>'}<div><h3>${esc(recipe.name)}</h3><div class="meta"><span>${esc(recipe.cuisine)}</span><span>${esc(recipe.meal)}</span><span>${esc(recipe.source?.provider || 'Online')}</span></div></div></div>
         <span class="badge ${statusClass}">${esc(labels[analysis.status])}</span>
       </div>
       ${analysis.replacements.length ? `<div class="small"><strong>${analysis.replacements.length} mögliche Ersetzung${analysis.replacements.length === 1 ? '' : 'en'}</strong><div class="muted">${esc(analysis.replacements.map(item => `${item.ingredient} → ${item.candidate.name}`).join('; '))}</div></div>` : ''}
@@ -360,19 +423,31 @@
   function renderRecipes() {
     const recipeList = [...state.recipes].sort((a, b) => a.name.localeCompare(b.name, 'de'));
     const online = state.online;
+    const source = state.settings.recipeSource || 'themealdb';
+    const hasSpoonacular = Boolean(String(state.settings.spoonacularKey || '').trim());
     return `
-      ${renderHeader('Rezepte', 'Online suchen, Allergien prüfen, anpassen und speichern', '<button class="button" data-action="new-recipe">+ Eigenes Rezept</button>')}
+      ${renderHeader('Rezepte', 'Deutsch suchen, alle hinterlegten Allergien prüfen und Rezepte anpassen', '<button class="button" data-action="new-recipe">+ Eigenes Rezept</button>')}
+      <section class="card" style="margin-bottom:14px">
+        ${renderPersonSelector({ compact: true })}
+      </section>
       <section class="card online-search-panel">
-        <div class="card-header"><div><h2>Online-Rezepte suchen</h2><div class="muted small">Normale Rezepte werden nicht vorab wegen Milch aussortiert.</div></div><span class="badge neutral">TheMealDB</span></div>
+        <div class="card-header"><div><h2>Online-Rezepte suchen</h2><div class="muted small">Normale Rezepte werden breit gesucht und erst danach auf Allergien und Ernährungsformen untersucht.</div></div><span class="badge neutral">${source === 'spoonacular' ? 'Spoonacular' : source === 'both' ? '2 Quellen' : 'TheMealDB'}</span></div>
         <form id="onlineSearchForm" class="online-search-form">
-          <label>Gericht oder Hauptzutat<input name="query" required value="${attr(online.query)}" placeholder="z. B. carbonara, chicken, potato"></label>
+          <label>Gericht oder Hauptzutat<input name="query" required value="${attr(online.query)}" placeholder="z. B. Kartoffelsuppe, Hähnchen, Lasagne"></label>
+          <label>Quelle<select name="source">
+            <option value="themealdb" ${source === 'themealdb' ? 'selected' : ''}>TheMealDB – kostenlos</option>
+            <option value="spoonacular" ${source === 'spoonacular' ? 'selected' : ''} ${hasSpoonacular ? '' : 'disabled'}>Spoonacular – eigener API-Schlüssel</option>
+            <option value="both" ${source === 'both' ? 'selected' : ''} ${hasSpoonacular ? '' : 'disabled'}>Beide Quellen</option>
+          </select></label>
           <button class="button" type="submit" ${online.loading ? 'disabled' : ''}>${online.loading ? 'Suche läuft …' : 'Online suchen'}</button>
         </form>
-        <p class="muted small">Die kostenlose Quelle ist überwiegend englisch. Jedes Ergebnis wird erst nach der Suche gegen die ausgewählten Personen geprüft.</p>
+        <div class="actions" style="margin-top:10px"><button type="button" class="button ghost compact" data-action="search-chefkoch">Zusätzlich bei Chefkoch suchen</button></div>
+        <p class="muted small">Deutsche Suchbegriffe werden unterstützt. TheMealDB-Inhalte werden beim Öffnen automatisch ins Deutsche übertragen. Maschinenübersetzungen müssen kontrolliert werden.</p>
+        ${!hasSpoonacular ? '<div class="notice" style="margin-top:10px">Eine zweite Quelle kann unter <strong>Mehr → Rezeptquellen</strong> aktiviert werden.</div>' : ''}
         ${online.error ? `<div class="notice danger">${esc(online.error)}</div>` : ''}
       </section>
 
-      ${online.loading ? '<div class="empty" style="margin:14px 0">Online-Rezepte werden geladen …</div>' : ''}
+      ${online.loading ? '<div class="empty" style="margin:14px 0">Online-Rezepte werden geladen und geprüft …</div>' : ''}
       ${online.results.length ? `<section style="margin-top:18px"><div class="card-header"><div><h2>Online gefunden</h2><div class="muted small">${online.results.length} Rezepte – noch nicht gespeichert</div></div></div><div class="grid two">${online.results.map(renderOnlineCard).join('')}</div></section>` : ''}
 
       <section style="margin-top:22px">
@@ -436,6 +511,7 @@
   function renderPeople() {
     return `
       ${renderHeader('Personen', 'Allergien, Ernährungsformen und Vorlieben', '<button class="button" data-action="new-person">+ Person</button>')}
+      <section class="card" style="margin-bottom:14px">${renderPersonSelector({ compact: true })}</section>
       <div class="grid two">
         ${state.profiles.length ? state.profiles.map(profile => {
           const allergies = [...(profile.allergies || []), ...(profile.intolerances || [])];
@@ -443,7 +519,7 @@
             <div class="card-header"><div><h2>${esc(profile.name)}</h2><div class="muted small">${esc(profile.role || 'Person')} · ${esc(profile.diet)}</div></div><span class="badge neutral">${esc(profile.spice || 'Mittel')} scharf</span></div>
             <div class="small"><strong>Allergien/Unverträglichkeiten</strong><p class="muted">${allergies.length ? esc(allergies.join(', ')) : 'Keine eingetragen'}</p></div>
             <div class="small"><strong>Mag nicht</strong><p class="muted">${(profile.dislikes || []).length ? esc(profile.dislikes.join(', ')) : 'Keine Einträge'}</p></div>
-            <div class="actions"><button class="button secondary compact" data-action="edit-person" data-id="${profile.id}">Bearbeiten</button>${profile.role !== 'Besitzer' ? `<button class="button ghost compact" data-action="delete-person" data-id="${profile.id}">Löschen</button>` : ''}</div>
+            <div class="actions"><button class="button ${(state.settings.selectedProfiles || []).includes(profile.id) ? 'secondary' : 'ghost'} compact" data-action="toggle-person" data-id="${profile.id}">${(state.settings.selectedProfiles || []).includes(profile.id) ? '✓ Isst mit' : 'Mitessen'}</button><button class="button secondary compact" data-action="edit-person" data-id="${profile.id}">Bearbeiten</button>${profile.role !== 'Besitzer' ? `<button class="button ghost compact" data-action="delete-person" data-id="${profile.id}">Löschen</button>` : ''}</div>
           </article>`;
         }).join('') : '<div class="empty">Noch keine Personen angelegt.</div>'}
       </div>
@@ -452,33 +528,55 @@
   }
 
   function renderSettings() {
+    const source = state.settings.recipeSource || 'themealdb';
+    const hasKey = Boolean(String(state.settings.spoonacularKey || '').trim());
     return `
-      ${renderHeader('Mehr', 'Sicherung, Installation und App-Informationen')}
+      ${renderHeader('Mehr', 'Sicherung, Rezeptquellen und App-Diagnose')}
       <div class="grid two">
         <section class="card">
-          <div class="card-header"><div><h2>Datensicherung</h2><div class="muted small">Alle Daten bleiben zunächst lokal auf diesem Gerät.</div></div></div>
+          <div class="card-header"><div><h2>Datensicherung</h2><div class="muted small">Alle persönlichen Daten bleiben lokal auf diesem Gerät.</div></div></div>
           <p>Exportiere regelmäßig eine Sicherungsdatei. Sie enthält Personen, Allergien, Vorräte, Rezepte und Einkaufslisten.</p>
           <div class="actions"><button class="button" data-action="export-data">Daten exportieren</button><button class="button secondary" data-action="import-data">Daten importieren</button></div>
           <input id="importFile" type="file" accept="application/json" hidden>
         </section>
         <section class="card">
-          <div class="card-header"><div><h2>Offline-Speicher</h2><div class="muted small">Browserdatenbank: IndexedDB</div></div></div>
-          <p>Die App speichert Änderungen automatisch. Dauerhafter Speicher kann beim Browser angefragt werden.</p>
-          <div class="actions"><button class="button secondary" data-action="request-persistence">Dauerhaften Speicher anfragen</button></div>
+          <div class="card-header"><div><h2>Lokaler Speicher</h2><div class="muted small">Browserdatenbank: IndexedDB</div></div></div>
+          <p>Die App speichert Änderungen automatisch. Der Diagnosetext zeigt, ob die Datenbank geöffnet werden kann.</p>
+          <div class="actions"><button class="button secondary" data-action="request-persistence">Dauerhaften Speicher anfragen</button><button class="button ghost" data-action="storage-test">Speicher testen</button></div>
           <div id="storageStatus" class="muted small" style="margin-top:10px"></div>
         </section>
         <section class="card">
-          <div class="card-header"><div><h2>Auf dem iPhone installieren</h2><div class="muted small">Safari → Teilen → Zum Home-Bildschirm</div></div></div>
-          <ol class="ingredient-list"><li>Die veröffentlichte App in Safari öffnen.</li><li>Auf das Teilen-Symbol tippen.</li><li>„Zum Home-Bildschirm“ auswählen.</li><li>„Hinzufügen“ bestätigen.</li></ol>
+          <div class="card-header"><div><h2>Rezeptquellen</h2><div class="muted small">TheMealDB funktioniert ohne Konto; Spoonacular erweitert die Auswahl.</div></div></div>
+          <form id="sourceSettingsForm" class="form-row">
+            <label>Standardquelle<select name="recipeSource">
+              <option value="themealdb" ${source === 'themealdb' ? 'selected' : ''}>TheMealDB</option>
+              <option value="spoonacular" ${source === 'spoonacular' ? 'selected' : ''}>Spoonacular</option>
+              <option value="both" ${source === 'both' ? 'selected' : ''}>Beide Quellen</option>
+            </select></label>
+            <label>Spoonacular-API-Schlüssel<input name="spoonacularKey" type="password" autocomplete="off" value="${attr(state.settings.spoonacularKey || '')}" placeholder="Optionaler persönlicher Schlüssel"><span class="muted small">Der Schlüssel wird nur lokal auf deinem Gerät gespeichert und nicht in den Projektdateien veröffentlicht.</span></label>
+            <div class="actions"><button class="button" type="submit">Quelle speichern</button></div>
+          </form>
+          <div class="muted small" style="margin-top:8px">Status: ${hasKey ? 'Spoonacular-Schlüssel vorhanden' : 'kein Spoonacular-Schlüssel eingetragen'}</div>
         </section>
         <section class="card">
-          <div class="card-header"><div><h2>Online- und KI-Status</h2><div class="muted small">Was diese Version bereits kann</div></div></div>
-          <div class="list"><div class="list-item"><div><strong>Online-Rezeptsuche</strong><div class="muted small">TheMealDB direkt aus dem Browser</div></div><span class="badge safe">Aktiv</span></div><div class="list-item"><div><strong>Milch-Ersatzprüfung</strong><div class="muted small">Lokale, nachvollziehbare Ersatzregeln</div></div><span class="badge safe">Aktiv</span></div><div class="list-item"><div><strong>Generative KI</strong><div class="muted small">Benötigt später einen geschützten Server und API-Zugang</div></div><span class="badge neutral">Noch nicht verbunden</span></div></div>
+          <div class="card-header"><div><h2>Installation und Updates</h2><div class="muted small">Version ${APP_VERSION}</div></div></div>
+          <ol class="ingredient-list"><li>App in Safari öffnen.</li><li>Teilen → „Zum Home-Bildschirm“.</li><li>Nach einem Code-Update einmal „App aktualisieren“ drücken.</li></ol>
+          <div class="actions" style="margin-top:12px"><button class="button secondary" data-action="force-update">App aktualisieren</button></div>
+        </section>
+        <section class="card">
+          <div class="card-header"><div><h2>Prüffunktionen</h2><div class="muted small">Aktive Funktionen dieser Version</div></div></div>
+          <div class="list">
+            <div class="list-item"><div><strong>Deutsche Suche und Ausgabe</strong><div class="muted small">Suchübersetzung und deutsche Rezeptdarstellung</div></div><span class="badge safe">Aktiv</span></div>
+            <div class="list-item"><div><strong>Alle Profil-Allergien</strong><div class="muted small">EU-Hauptallergene plus individuell eingetragene Zutaten</div></div><span class="badge safe">Aktiv</span></div>
+            <div class="list-item"><div><strong>Ernährungsformen</strong><div class="muted small">Vegetarisch, vegan und pescetarisch werden je Person geprüft</div></div><span class="badge safe">Aktiv</span></div>
+            <div class="list-item"><div><strong>Generative KI</strong><div class="muted small">Noch nicht verbunden; aktuelle Anpassung nutzt nachvollziehbare Regeln</div></div><span class="badge neutral">Später</span></div>
+          </div>
         </section>
       </div>
       <section class="card" style="margin-top:14px"><div class="card-header"><div><h2>Gefahrenbereich</h2><div class="muted small">Entfernt alle lokal gespeicherten App-Daten.</div></div></div><button class="button danger" data-action="reset-data">Alle Daten löschen</button></section>
     `;
   }
+
 
   function render() {
     const renderers = { home: renderHome, recipes: renderRecipes, pantry: renderPantry, shopping: renderShopping, people: renderPeople, settings: renderSettings };
@@ -528,15 +626,20 @@
   async function searchOnlineRecipes(form) {
     const data = new FormData(form);
     const query = String(data.get('query') || '').trim();
+    const source = String(data.get('source') || state.settings.recipeSource || 'themealdb');
+    await saveSettings({ recipeSource: source });
     state.online = { ...state.online, query, loading: true, error: '' };
     render();
     try {
-      const results = await SKOnline.search(query, 12);
+      const results = await SKOnline.search(query, 12, {
+        source,
+        spoonacularKey: String(state.settings.spoonacularKey || '').trim()
+      });
       const rank = { direct: 0, adaptable: 1, check: 2, blocked: 3 };
       results.sort((a, b) => rank[SKOnline.analyze(a, selectedProfiles()).status] - rank[SKOnline.analyze(b, selectedProfiles()).status]);
-      state.online = { results, query, loading: false, error: results.length ? '' : 'Keine Ergebnisse gefunden. Versuche einen englischen Begriff oder eine andere Hauptzutat.' };
+      state.online = { results, query, loading: false, error: results.length ? '' : 'Keine Ergebnisse gefunden. Versuche einen allgemeineren Suchbegriff.' };
     } catch (error) {
-      state.online = { results: [], query, loading: false, error: `${error.message || 'Onlinesuche fehlgeschlagen'} Prüfe auch deine Internetverbindung.` };
+      state.online = { results: [], query, loading: false, error: `${error.message || 'Onlinesuche fehlgeschlagen'} Prüfe auch deine Internetverbindung und die gewählte Quelle.` };
     }
     render();
   }
@@ -546,38 +649,57 @@
     const statusClass = analysis.status === 'direct' ? 'success' : analysis.status === 'blocked' ? 'danger' : '';
     const desired = Math.max(1, selectedProfiles().length || 2);
     const conflictList = analysis.conflicts.map(item => `<li><strong>${esc(item.ingredient)}</strong>: ${esc(item.allergen)} – betroffen: ${esc(item.profiles.join(', ') || 'ausgewählte Person')}</li>`).join('');
-    const replacementList = analysis.replacements.map(item => `<li><strong>${esc(item.ingredient)}</strong> → ${esc(item.candidate.name)}<div class="muted small">${esc(item.candidate.note)}</div></li>`).join('');
+    const dietList = analysis.dietConflicts.map(item => `<li>${esc(item)}</li>`).join('');
+    const replacementList = analysis.replacements.map(item => `<li><strong>${esc(item.ingredient)}</strong> → ${esc(item.candidate.name)}<div class="muted small">${esc(item.candidate.note)} · für ${esc(item.profiles.join(', '))}</div></li>`).join('');
     const unresolvedList = analysis.unresolved.map(item => `<li><strong>${esc(item.ingredient)}</strong>: ${esc(item.reason)}</li>`).join('');
+    const sourceName = recipe.source?.provider || 'Online';
+    const baseServings = Math.max(1, number(recipe.servings) || 4);
     return `<div class="modal-inner">
-      <div class="modal-header"><div><h2>${esc(recipe.name)}</h2><div class="meta"><span>${esc(recipe.cuisine)}</span><span>${esc(recipe.diet)}</span><span>Quelle: TheMealDB</span></div></div>${closeButton()}</div>
+      <div class="modal-header"><div><h2>${esc(recipe.name)}</h2><div class="meta"><span>${esc(recipe.cuisine)}</span><span>${esc(recipe.diet)}</span><span>Quelle: ${esc(sourceName)}</span></div></div>${closeButton()}</div>
       ${recipe.image ? `<img class="recipe-hero-image" src="${attr(safeUrl(recipe.image))}" alt="${attr(recipe.name)}">` : ''}
-      <div class="notice ${statusClass}" style="margin-top:12px"><strong>${esc(SKOnline.statusLabels[analysis.status])}</strong><br>${analysis.status === 'adaptable' ? 'Milchhaltige Zutaten können mit hinterlegten Standardalternativen ersetzt werden.' : analysis.status === 'direct' ? 'Kein eingetragener Konflikt wurde erkannt.' : analysis.status === 'check' ? 'Mindestens eine Zutat oder Vorliebe muss persönlich geprüft werden.' : 'Mindestens ein Konflikt kann nicht zuverlässig automatisch ersetzt werden.'}</div>
-      ${conflictList ? `<h3 style="margin-top:16px">Erkannte Konflikte</h3><ul class="ingredient-list">${conflictList}</ul>` : ''}
+      <div style="margin-top:12px">${renderPersonSelector({ compact: true })}</div>
+      <div class="notice ${statusClass}" style="margin-top:12px"><strong>${esc(SKOnline.statusLabels[analysis.status])}</strong><br>${analysis.status === 'adaptable' ? 'Konflikte können mit hinterlegten Ersatzregeln angepasst werden. Die konkrete Produktwahl bleibt prüfpflichtig.' : analysis.status === 'direct' ? 'Kein Konflikt mit den ausgewählten Profilen wurde erkannt.' : analysis.status === 'check' ? 'Mindestens eine Zutat oder Vorliebe muss persönlich geprüft werden.' : 'Mindestens ein Konflikt kann nicht zuverlässig automatisch ersetzt werden.'}</div>
+      ${conflictList ? `<h3 style="margin-top:16px">Erkannte Allergie-Konflikte</h3><ul class="ingredient-list">${conflictList}</ul>` : ''}
+      ${dietList ? `<h3 style="margin-top:16px">Ernährungsformen</h3><ul class="ingredient-list">${dietList}</ul>` : ''}
       ${replacementList ? `<h3 style="margin-top:16px">Vorgeschlagene Ersetzungen</h3><ul class="ingredient-list">${replacementList}</ul>` : ''}
       ${unresolvedList ? `<h3 style="margin-top:16px">Nicht automatisch lösbar</h3><ul class="ingredient-list">${unresolvedList}</ul>` : ''}
       ${analysis.checks.length ? `<div class="notice" style="margin-top:14px"><strong>Zusätzlich prüfen:</strong> ${esc(analysis.checks.join('; '))}</div>` : ''}
       <hr class="divider">
       <div class="form-grid">
-        <label>Originalmengen gelten vermutlich für<input id="onlineBaseServings" type="number" min="1" step="1" value="4"><span class="muted small">Die Quelle nennt keine verlässliche Portionszahl. Bitte kontrollieren.</span></label>
+        <label>Originalportionen<input id="onlineBaseServings" type="number" min="1" step="1" value="${baseServings}"><span class="muted small">Bei geschätzten Angaben bitte mit der Originalquelle vergleichen.</span></label>
         <label>Gewünschte Portionen<input id="onlineDesiredServings" type="number" min="1" step="1" value="${desired}"></label>
       </div>
-      <h3 style="margin-top:16px">Originalzutaten</h3>
-      <ul class="ingredient-list">${recipe.ingredients.map(item => `<li><strong>${esc(item.originalMeasure || `${formatNumber(item.amount)} ${item.unit}`)}</strong> ${esc(item.name)}</li>`).join('')}</ul>
-      <h3 style="margin-top:16px">Originalzubereitung</h3>
+      <h3 style="margin-top:16px">Zutaten</h3>
+      <ul class="ingredient-list">${recipe.ingredients.map(item => `<li><strong>${esc(item.originalMeasure || `${formatNumber(item.amount)} ${item.unit}`)}</strong> ${esc(item.name)}${(item.allergens || []).length ? ` <span class="badge check">${esc(item.allergens.join(', '))}</span>` : ''}</li>`).join('')}</ul>
+      <h3 style="margin-top:16px">Zubereitung</h3>
       <ol class="ingredient-list">${recipe.steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol>
-      <div class="notice danger" style="margin-top:14px"><strong>Allergiesicherheit:</strong> Die Online-Daten und automatischen Ersetzungen sind keine Garantie. Konkrete Produkte, Unterzutaten, Spurenhinweise und Kreuzkontamination immer selbst kontrollieren.</div>
+      ${recipe.originalLanguage && recipe.originalLanguage !== 'de' ? '<div class="notice" style="margin-top:14px"><strong>Übersetzung:</strong> Der deutsche Text wurde maschinell übersetzt und muss mit der Originalquelle verglichen werden.</div>' : ''}
+      <div class="notice danger" style="margin-top:14px"><strong>Allergiesicherheit:</strong> Online-Daten und automatische Ersetzungen sind keine Garantie. Konkrete Produkte, Unterzutaten, Spurenhinweise und Kreuzkontamination immer selbst kontrollieren.</div>
       <div class="actions" style="margin-top:16px">
         ${analysis.status !== 'blocked' ? `<button class="button" data-action="adapt-online-recipe" data-id="${recipe.externalId}">${analysis.status === 'direct' ? 'Mit Mengen speichern' : 'Anpassen und speichern'}</button>` : ''}
+        <button class="button secondary" data-action="save-online-original" data-id="${recipe.externalId}">Unverändert speichern</button>
         ${recipe.source?.url ? `<a class="button ghost" href="${attr(safeUrl(recipe.source.url))}" target="_blank" rel="noopener noreferrer">Originalquelle öffnen</a>` : ''}
       </div>
     </div>`;
   }
 
+  async function openOnlineRecipe(recipe) {
+    openModal(`<div class="modal-inner"><div class="modal-header"><div><h2>Rezept wird vorbereitet</h2><div class="muted small">Deutsche Übersetzung und Profilprüfung</div></div>${closeButton()}</div><div class="empty">Rezeptdaten werden geladen …</div></div>`);
+    try {
+      const translated = recipe.germanReady ? recipe : await SKOnline.translateRecipeToGerman(recipe, true);
+      state.online.results = state.online.results.map(item => item.externalId === translated.externalId ? translated : item);
+      openModal(onlineRecipeDetail(translated));
+    } catch (error) {
+      openModal(`<div class="modal-inner"><div class="modal-header"><div><h2>Rezept konnte nicht geöffnet werden</h2></div>${closeButton()}</div><div class="notice danger">${esc(error.message || error)}</div></div>`);
+    }
+  }
+
   async function adaptAndSaveOnlineRecipe(recipe) {
     try {
-      const baseServings = Math.max(1, number(document.querySelector('#onlineBaseServings')?.value) || 4);
+      const germanRecipe = recipe.germanReady ? recipe : await SKOnline.translateRecipeToGerman(recipe, true);
+      const baseServings = Math.max(1, number(document.querySelector('#onlineBaseServings')?.value) || germanRecipe.servings || 4);
       const desiredServings = Math.max(1, number(document.querySelector('#onlineDesiredServings')?.value) || selectedProfiles().length || 2);
-      const adapted = SKOnline.adapt(recipe, selectedProfiles(), baseServings, desiredServings);
+      const adapted = SKOnline.adapt(germanRecipe, selectedProfiles(), baseServings, desiredServings);
       adapted.id = uid('recipe');
       adapted.createdAt = new Date().toISOString();
       adapted.updatedAt = adapted.createdAt;
@@ -589,6 +711,33 @@
       showToast(adapted.adaptation?.changes?.length ? 'Angepasstes Rezept gespeichert' : 'Online-Rezept gespeichert');
     } catch (error) {
       showToast(error.message || 'Rezept konnte nicht angepasst werden');
+    }
+  }
+
+  async function saveOnlineOriginal(recipe) {
+    try {
+      const germanRecipe = recipe.germanReady ? recipe : await SKOnline.translateRecipeToGerman(recipe, true);
+      const baseServings = Math.max(1, number(document.querySelector('#onlineBaseServings')?.value) || germanRecipe.servings || 4);
+      const desiredServings = Math.max(1, number(document.querySelector('#onlineDesiredServings')?.value) || selectedProfiles().length || 2);
+      const scale = desiredServings / baseServings;
+      const saved = {
+        ...germanRecipe,
+        id: uid('recipe'),
+        servings: desiredServings,
+        servingsEstimated: false,
+        ingredients: germanRecipe.ingredients.map(item => ({ ...item, amount: number(item.amount) * scale })),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        importedAt: new Date().toISOString(),
+        productConfirmed: false
+      };
+      await SKDB.put('recipes', saved);
+      await loadState();
+      closeModal();
+      render();
+      showToast('Unverändertes Online-Rezept gespeichert');
+    } catch (error) {
+      showToast(error.message || 'Rezept konnte nicht gespeichert werden');
     }
   }
 
@@ -604,7 +753,7 @@
       await loadState();
       closeModal();
       render();
-      showToast('Milchfreie Variante als neues Rezept gespeichert');
+      showToast('Angepasste Variante als neues Rezept gespeichert');
     } catch (error) {
       showToast(error.message || 'Rezept konnte nicht angepasst werden');
     }
@@ -709,7 +858,7 @@
       <ol class="ingredient-list">${recipe.steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol>
       ${recipe.notes ? `<div class="notice" style="margin-top:14px">${esc(recipe.notes)}</div>` : ''}
       ${availability.missing.length ? `<div class="notice" style="margin-top:14px"><strong>Aktuell fehlend:</strong> ${esc(availability.missing.map(i => i.name).join(', '))}</div>` : ''}
-      <div class="actions" style="margin-top:16px"><button class="button" data-action="cook-recipe" data-id="${recipe.id}">Gericht gekocht</button><button class="button secondary" data-action="add-missing" data-id="${recipe.id}">Fehlendes einkaufen</button>${compatibility.status === 'adaptable' ? `<button class="button secondary" data-action="adapt-saved-recipe" data-id="${recipe.id}">Milchfrei anpassen</button>` : ''}${recipe.adaptation && !recipe.productConfirmed ? `<button class="button secondary" data-action="confirm-products" data-id="${recipe.id}">Produkte geprüft</button>` : ''}${recipe.source?.url ? `<a class="button ghost" href="${attr(safeUrl(recipe.source.url))}" target="_blank" rel="noopener noreferrer">Quelle öffnen</a>` : ''}<button class="button ghost" data-action="edit-recipe" data-id="${recipe.id}">Bearbeiten</button><button class="button ghost" data-action="delete-recipe" data-id="${recipe.id}">Löschen</button></div>
+      <div class="actions" style="margin-top:16px"><button class="button" data-action="cook-recipe" data-id="${recipe.id}">Gericht gekocht</button><button class="button secondary" data-action="add-missing" data-id="${recipe.id}">Fehlendes einkaufen</button>${compatibility.status === 'adaptable' ? `<button class="button secondary" data-action="adapt-saved-recipe" data-id="${recipe.id}">Automatisch anpassen</button>` : ''}${recipe.adaptation && !recipe.productConfirmed ? `<button class="button secondary" data-action="confirm-products" data-id="${recipe.id}">Produkte geprüft</button>` : ''}${recipe.source?.url ? `<a class="button ghost" href="${attr(safeUrl(recipe.source.url))}" target="_blank" rel="noopener noreferrer">Quelle öffnen</a>` : ''}<button class="button ghost" data-action="edit-recipe" data-id="${recipe.id}">Bearbeiten</button><button class="button ghost" data-action="delete-recipe" data-id="${recipe.id}">Löschen</button></div>
     </div>`;
   }
 
@@ -732,45 +881,67 @@
   }
 
   async function saveProfile(form) {
-    const data = new FormData(form);
-    const existing = state.profiles.find(p => p.id === data.get('id'));
-    const profile = {
-      ...existing,
-      id: data.get('id') || uid('person'),
-      name: data.get('name').trim(),
-      role: data.get('role'),
-      diet: data.get('diet'),
-      spice: data.get('spice'),
-      allergies: splitList(data.get('allergies')),
-      intolerances: splitList(data.get('intolerances')),
-      dislikes: splitList(data.get('dislikes')),
-      likes: splitList(data.get('likes')),
-      createdAt: existing?.createdAt || new Date().toISOString()
-    };
-    await SKDB.put('profiles', profile);
-    if (!(state.settings.selectedProfiles || []).includes(profile.id)) await saveSettings({ selectedProfiles: [...(state.settings.selectedProfiles || []), profile.id] });
-    await loadState(); closeModal(); render(); showToast('Person gespeichert');
+    return runFormTask(form, async () => {
+      const data = new FormData(form);
+      const id = String(data.get('id') || '');
+      const existing = state.profiles.find(profile => profile.id === id);
+      const name = String(data.get('name') || '').trim();
+      if (!name) throw new Error('Bitte einen Namen eingeben.');
+      const profile = {
+        ...existing,
+        id: id || uid('person'),
+        name,
+        role: String(data.get('role') || 'Person'),
+        diet: String(data.get('diet') || 'Omnivor'),
+        spice: String(data.get('spice') || 'Mittel'),
+        allergies: splitList(data.get('allergies')),
+        intolerances: splitList(data.get('intolerances')),
+        dislikes: splitList(data.get('dislikes')),
+        likes: splitList(data.get('likes')),
+        createdAt: existing?.createdAt || new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      await SKDB.put('profiles', profile);
+      const selected = new Set(state.settings.selectedProfiles || []);
+      if (!selected.has(profile.id)) {
+        selected.add(profile.id);
+        await saveSettings({ selectedProfiles: [...selected] });
+      }
+      await loadState();
+      closeModal();
+      render();
+      showToast('Person gespeichert');
+    });
   }
 
   async function savePantry(form) {
-    const data = new FormData(form);
-    const existing = state.pantry.find(p => p.id === data.get('id'));
-    const item = {
-      ...existing,
-      id: data.get('id') || uid('pantry'),
-      name: data.get('name').trim(),
-      quantity: number(data.get('quantity')),
-      unit: data.get('unit'),
-      location: data.get('location'),
-      expiry: data.get('expiry'),
-      minimum: number(data.get('minimum')),
-      allergens: splitList(data.get('allergens')),
-      traces: splitList(data.get('traces')),
-      notes: data.get('notes').trim(),
-      updatedAt: new Date().toISOString()
-    };
-    await SKDB.put('pantry', item);
-    await loadState(); closeModal(); render(); showToast('Vorrat gespeichert');
+    return runFormTask(form, async () => {
+      const data = new FormData(form);
+      const id = String(data.get('id') || '');
+      const existing = state.pantry.find(item => item.id === id);
+      const name = String(data.get('name') || '').trim();
+      if (!name) throw new Error('Bitte ein Lebensmittel eingeben.');
+      const item = {
+        ...existing,
+        id: id || uid('pantry'),
+        name,
+        quantity: number(data.get('quantity')),
+        unit: String(data.get('unit') || 'Stück'),
+        location: String(data.get('location') || 'Vorratsschrank'),
+        expiry: String(data.get('expiry') || ''),
+        minimum: number(data.get('minimum')),
+        allergens: splitList(data.get('allergens')),
+        traces: splitList(data.get('traces')),
+        notes: String(data.get('notes') || '').trim(),
+        createdAt: existing?.createdAt || new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      await SKDB.put('pantry', item);
+      await loadState();
+      closeModal();
+      render();
+      showToast('Vorrat gespeichert');
+    });
   }
 
   function parseIngredients(value) {
@@ -782,30 +953,37 @@
   }
 
   async function saveRecipe(form) {
-    try {
+    return runFormTask(form, async () => {
       const data = new FormData(form);
-      const existing = state.recipes.find(r => r.id === data.get('id'));
+      const id = String(data.get('id') || '');
+      const existing = state.recipes.find(recipe => recipe.id === id);
+      const name = String(data.get('name') || '').trim();
+      if (!name) throw new Error('Bitte einen Rezeptnamen eingeben.');
+      const ingredients = parseIngredients(data.get('ingredients'));
+      const steps = String(data.get('steps') || '').split('\n').map(value => value.trim()).filter(Boolean);
+      if (!steps.length) throw new Error('Bitte mindestens einen Kochschritt eingeben.');
       const recipe = {
         ...existing,
-        id: data.get('id') || uid('recipe'),
-        name: data.get('name').trim(),
-        cuisine: data.get('cuisine'),
-        meal: data.get('meal'),
-        diet: data.get('diet'),
+        id: id || uid('recipe'),
+        name,
+        cuisine: String(data.get('cuisine') || 'International'),
+        meal: String(data.get('meal') || 'Abendessen'),
+        diet: String(data.get('diet') || 'Omnivor'),
         servings: Math.max(1, number(data.get('servings'))),
         prep: number(data.get('prep')),
         cook: number(data.get('cook')),
-        ingredients: parseIngredients(data.get('ingredients')),
-        steps: String(data.get('steps')).split('\n').map(v => v.trim()).filter(Boolean),
-        notes: data.get('notes').trim(),
+        ingredients,
+        steps,
+        notes: String(data.get('notes') || '').trim(),
         createdAt: existing?.createdAt || new Date().toISOString(),
         updatedAt: new Date().toISOString()
       };
       await SKDB.put('recipes', recipe);
-      await loadState(); closeModal(); render(); showToast('Rezept gespeichert');
-    } catch (error) {
-      showToast(error.message || 'Rezept konnte nicht gespeichert werden');
-    }
+      await loadState();
+      closeModal();
+      render();
+      showToast('Rezept gespeichert');
+    });
   }
 
   async function saveShopping(form) {
@@ -912,9 +1090,16 @@
 
   async function updateStorageStatus() {
     const node = document.querySelector('#storageStatus');
-    if (!node || !navigator.storage?.persisted) return;
-    const persisted = await navigator.storage.persisted();
-    node.textContent = persisted ? 'Dauerhafter Speicher wurde gewährt.' : 'Dauerhafter Speicher ist noch nicht bestätigt.';
+    if (!node) return;
+    try {
+      await SKDB.healthCheck();
+      const persisted = navigator.storage?.persisted ? await navigator.storage.persisted() : false;
+      node.textContent = persisted ? 'Datenbank funktioniert; dauerhafter Speicher wurde gewährt.' : 'Datenbank funktioniert; dauerhafter Speicher ist noch nicht bestätigt.';
+      node.className = 'small storage-ok';
+    } catch (error) {
+      node.textContent = `Speicherfehler: ${error.message || error}`;
+      node.className = 'small storage-error';
+    }
   }
 
   async function requestPersistence() {
@@ -922,6 +1107,36 @@
     const granted = await navigator.storage.persist();
     showToast(granted ? 'Dauerhafter Speicher gewährt' : 'Browser hat die Anfrage nicht bestätigt');
     updateStorageStatus();
+  }
+
+  async function saveSourceSettings(form) {
+    return runFormTask(form, async () => {
+      const data = new FormData(form);
+      const recipeSource = String(data.get('recipeSource') || 'themealdb');
+      const spoonacularKey = String(data.get('spoonacularKey') || '').trim();
+      if (['spoonacular', 'both'].includes(recipeSource) && !spoonacularKey) throw new Error('Für diese Auswahl ist ein Spoonacular-API-Schlüssel erforderlich.');
+      await saveSettings({ recipeSource, spoonacularKey });
+      await loadState();
+      render();
+      showToast('Rezeptquelle gespeichert');
+    });
+  }
+
+  async function forceUpdate() {
+    try {
+      if ('serviceWorker' in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations.map(registration => registration.update()));
+      }
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.filter(key => key.startsWith('sicherkochen-')).map(key => caches.delete(key)));
+      }
+      showToast('Update wird geladen');
+      window.setTimeout(() => window.location.reload(), 250);
+    } catch (error) {
+      showToast(error.message || 'Update konnte nicht geladen werden');
+    }
   }
 
   document.addEventListener('click', async event => {
@@ -939,12 +1154,17 @@
     if (action === 'close-modal') return closeModal();
     if (action === 'view-online-recipe') {
       const recipe = state.online.results.find(item => item.externalId === id);
-      if (recipe) return openModal(onlineRecipeDetail(recipe));
+      if (recipe) return openOnlineRecipe(recipe);
       return;
     }
     if (action === 'adapt-online-recipe') {
       const recipe = state.online.results.find(item => item.externalId === id);
       if (recipe) return adaptAndSaveOnlineRecipe(recipe);
+      return;
+    }
+    if (action === 'save-online-original') {
+      const recipe = state.online.results.find(item => item.externalId === id);
+      if (recipe) return saveOnlineOriginal(recipe);
       return;
     }
     if (action === 'adapt-saved-recipe') {
@@ -967,7 +1187,9 @@
       const selected = new Set(state.settings.selectedProfiles || []);
       selected.has(id) ? selected.delete(id) : selected.add(id);
       await saveSettings({ selectedProfiles: [...selected] });
-      return render();
+      if (button.closest('#modal')) closeModal();
+      render();
+      return showToast(`${selected.size} ${selected.size === 1 ? 'Person' : 'Personen'} ausgewählt`);
     }
     if (action === 'new-person') return openModal(profileForm());
     if (action === 'edit-person') return openModal(profileForm(state.profiles.find(p => p.id === id)));
@@ -1003,6 +1225,18 @@
       for (const item of state.shopping.filter(i => i.done)) await SKDB.delete('shopping', item.id);
       await loadState(); return render();
     }
+    if (action === 'search-chefkoch') {
+      const query = String(document.querySelector('#onlineSearchForm input[name="query"]')?.value || state.online.query || '').trim();
+      const url = `https://www.chefkoch.de/rs/s0/${encodeURIComponent(query || 'Rezepte')}/Rezepte.html`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    if (action === 'storage-test') {
+      try { await SKDB.healthCheck(); showToast('Lokaler Speicher funktioniert'); updateStorageStatus(); }
+      catch (error) { showToast(error.message || 'Speichertest fehlgeschlagen'); }
+      return;
+    }
+    if (action === 'force-update') return forceUpdate();
     if (action === 'export-data') return exportData();
     if (action === 'import-data') return document.querySelector('#importFile')?.click();
     if (action === 'request-persistence') return requestPersistence();
@@ -1015,13 +1249,15 @@
 
   document.addEventListener('submit', async event => {
     event.preventDefault();
-    if (event.target.id === 'onlineSearchForm') return searchOnlineRecipes(event.target);
-    if (event.target.id === 'profileForm') return saveProfile(event.target);
-    if (event.target.id === 'pantryForm') return savePantry(event.target);
-    if (event.target.id === 'recipeForm') return saveRecipe(event.target);
-    if (event.target.id === 'shoppingForm') return saveShopping(event.target);
-    if (event.target.id === 'cookForm') return processCook(event.target);
-    if (event.target.id === 'completeShoppingForm') return storeCompletedShopping(event.target);
+    const formId = event.target.getAttribute('id');
+    if (formId === 'onlineSearchForm') return searchOnlineRecipes(event.target);
+    if (formId === 'profileForm') return saveProfile(event.target);
+    if (formId === 'pantryForm') return savePantry(event.target);
+    if (formId === 'recipeForm') return saveRecipe(event.target);
+    if (formId === 'shoppingForm') return saveShopping(event.target);
+    if (formId === 'cookForm') return processCook(event.target);
+    if (formId === 'completeShoppingForm') return storeCompletedShopping(event.target);
+    if (formId === 'sourceSettingsForm') return saveSourceSettings(event.target);
   });
 
   modal.addEventListener('click', event => {

@@ -1,8 +1,8 @@
 {
   "name": "SicherKochen – Rezeptbuch & Vorräte",
   "short_name": "SicherKochen",
-  "description": "Online-Rezeptsuche mit allergikerfreundlicher Prüfung, Anpassung und Vorratsverwaltung.",
-  "start_url": "./index.html",
+  "description": "Deutsche Online-Rezeptsuche mit Prüfung aller hinterlegten Allergien, automatischer Anpassung und Vorratsverwaltung.",
+  "start_url": "./index.html?v=3.0.0",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f6f3ea",

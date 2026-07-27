@@ -250,3 +250,13 @@ a.button { display: inline-flex; align-items: center; justify-content: center; t
   .recipe-card .recipe-top { display: grid; }
   .recipe-thumb { width: 64px; height: 64px; flex-basis: 64px; }
 }
+
+.person-selector { min-width: 0; }
+.person-selector.compact .chip { padding: 7px 10px; }
+.form-error { margin: 14px 0; }
+.storage-ok { color: var(--success); font-weight: 700; }
+.storage-error { color: var(--danger); font-weight: 700; }
+
+@media (min-width: 700px) {
+  .online-search-form { grid-template-columns: minmax(0, 1fr) minmax(190px, .45fr) auto; }
+}
