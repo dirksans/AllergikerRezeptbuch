@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '3.5.0';
+  const APP_VERSION = '3.5.1';
   const DATA_VERSION = 5;
   const app = document.querySelector('#app');
   const modal = document.querySelector('#modal');
@@ -25,7 +25,7 @@
   const todayISO = () => new Date().toISOString().slice(0,10);
   const formatDate = value => value ? new Intl.DateTimeFormat('de-DE').format(new Date(`${value}T12:00:00`)) : '–';
   const fmt = value => new Intl.NumberFormat('de-DE',{maximumFractionDigits:2}).format(Number(value)||0);
-  const safeUrl = value => { try { const u=new URL(String(value||''),location.href); return ['http:','https:'].includes(u.protocol)?u.href:''; } catch { return ''; } };
+  const safeUrl = value => { const raw=String(value||'').trim(); if(!raw)return ''; try { const u=new URL(raw,location.href); return ['http:','https:'].includes(u.protocol)?u.href:''; } catch { return ''; } };
   const splitList = value => String(value||'').split(',').map(v=>v.trim()).filter(Boolean);
 
   function showToast(message, duration=2600) {
@@ -38,7 +38,7 @@
   }
   function closeModal(){ if(typeof modal.close==='function') modal.close(); else modal.removeAttribute('open'); modal.className='modal'; }
   const closeButton=()=>'<button type="button" class="icon-button" data-action="close-modal" aria-label="Schließen">×</button>';
-  function setFormBusy(form,busy){ if(!form)return; form.querySelectorAll('button,input,select,textarea').forEach(el=>{ if(el.type!=='file') el.disabled=Boolean(busy); }); }
+  function setFormBusy(form,busy){ if(!form)return; form.setAttribute('aria-busy',busy?'true':'false'); form.querySelectorAll('button').forEach(el=>{ el.disabled=Boolean(busy); }); }
   function formError(form,message){ let n=form.querySelector('.form-error'); if(!n){n=document.createElement('div');n.className='notice danger form-error';form.prepend(n);} n.textContent=message; }
   async function runForm(form,task){ setFormBusy(form,true); form.querySelector('.form-error')?.remove(); try{await task();}catch(e){console.error(e);formError(form,e.message||'Die Änderung konnte nicht gespeichert werden.');}finally{if(document.contains(form))setFormBusy(form,false);} }
 
@@ -211,7 +211,7 @@
       return true;
     });
     recipes=SKRecipes.rankRecipes(recipes,{pantry:state.pantry,profiles,history:state.history,targetServings:target}).map(x=>x.recipe);
-    return `${header('Rezepte','Intern, eigene Rezepte und optionale Online-Suche','<button class="button secondary compact" data-action="new-recipe">+ Eigenes Rezept</button>')}
+    return `${header('Rezepte','Intern, eigene Rezepte und optionale Online-Suche','<div class="button-row"><button class="button secondary compact" data-action="import-recipe">Importieren</button><button class="button secondary compact" data-action="new-recipe">+ Eigenes Rezept</button></div>')}
       ${personSelector(true)}
       <section class="card filters">
         <div class="form-grid"><label>Suche<input id="recipeQuery" type="search" value="${attr(state.settings.recipeQuery||'')}" placeholder="z. B. Kartoffeln, Curry, Italienisch"></label>
@@ -222,7 +222,11 @@
       <section class="card online-card"><div class="section-title"><div><h2>Online-Rezepte</h2><span class="muted small">TheMealDB – Suchbegriffe werden extern übertragen</span></div></div>
         ${state.settings.onlineEnabled===false?'<div class="notice">Externe Rezeptdienste sind in den Einstellungen deaktiviert.</div>':`<form id="onlineSearchForm" class="inline-form"><input name="query" value="${attr(state.online.query||'')}" placeholder="z. B. Lasagne, Curry, Kartoffelsuppe" required><button class="button primary" type="submit">Suchen</button></form>
         ${state.online.loading?'<div class="loading">Online-Suche läuft …</div>':''}${state.online.error?`<div class="notice danger">${esc(state.online.error)}</div>`:''}
-        <div class="button-row"><button class="button secondary compact" type="button" data-action="search-chefkoch">Zusätzlich bei Chefkoch suchen</button></div>
+        <div class="section-kicker" style="margin-top:12px">Neue Rezepte entdecken</div>
+        <div class="chips discovery-chips">
+          ${['Kartoffeln','Pasta','Curry','Brokkoli','Hähnchen','Linsen'].map(q=>`<button class="chip" type="button" data-action="online-quick-search" data-query="${attr(q)}">${esc(q)}</button>`).join('')}
+        </div>
+        <div class="button-row"><button class="button secondary compact" type="button" data-action="search-chefkoch">Bei Chefkoch suchen</button><button class="button secondary compact" type="button" data-action="import-recipe">Rezept von Webseite übernehmen</button></div>
         <div class="card-grid online-results">${state.online.results.map(renderOnlineCard).join('')}</div>`}
       </section>`;
   }
@@ -253,7 +257,8 @@
     const open=state.shopping.filter(x=>!x.done); const done=state.shopping.filter(x=>x.done);
     const grouped=groupShopping(open);
     return `${header('Einkauf','Listen nach Kategorien sortiert','<button class="button primary compact" data-action="new-shopping">+ Eintrag</button>')}
-      <div class="quick-actions"><button class="button secondary compact" data-action="shopping-generator">Liste erzeugen</button><button class="button secondary compact" data-action="all-bought" ${open.length?'':'disabled'}>Alles eingekauft</button>${done.length?'<button class="button secondary compact" data-action="done-to-pantry">Erledigtes zum Vorrat</button>':''}</div>
+      <section class="card shopping-option"><label class="switch-row no-border"><span><strong>Beim Abhaken direkt zum Vorrat</strong><small>Ist die Option aktiv, wird die eingekaufte Menge sofort im Vorrat verbucht. Beim Zurücksetzen wird diese Buchung wieder rückgängig gemacht.</small></span><input type="checkbox" id="shoppingAutoPantry" ${state.settings.shoppingAutoPantry?'checked':''}></label></section>
+      <div class="quick-actions"><button class="button secondary compact" data-action="shopping-generator">Liste erzeugen</button><button class="button secondary compact" data-action="all-bought" ${open.length?'':'disabled'}>Alles eingekauft</button>${done.some(x=>!x.addedToPantry)?'<button class="button secondary compact" data-action="done-to-pantry">Erledigtes zum Vorrat</button>':''}</div>
       ${Object.entries(grouped).map(([category,items])=>`<section class="shopping-group"><h2>${esc(category)}</h2><div class="list">${items.map(renderShoppingItem).join('')}</div></section>`).join('')||'<div class="empty">Die Einkaufsliste ist leer.</div>'}
       ${done.length?`<section class="shopping-group done"><div class="section-title"><h2>Erledigt (${done.length})</h2><button class="link-button" data-action="clear-done">Entfernen</button></div><div class="list">${done.map(renderShoppingItem).join('')}</div></section>`:''}`;
   }
@@ -265,7 +270,7 @@
     if(item.location==='Tiefkühler'||/tk|tief/.test(c))return 'TK'; if(/kuhlung/.test(c))return 'Kühlung'; if(/konserven/.test(c))return 'Konserven'; if(/sossen|gewurze|ole/.test(c))return 'Soßen/Gewürze'; if(/kohlenhydrate|trocken|nusse/.test(c))return 'Trockenware'; return 'Sonstiges';
   }
   function groupShopping(items){ const out={}; for(const c of shoppingOrder)out[c]=[]; for(const item of items)out[shoppingCategory(item)].push(item); return Object.fromEntries(Object.entries(out).filter(([,v])=>v.length)); }
-  function renderShoppingItem(item){ return `<article class="list-item ${item.done?'is-done':''}"><button class="check-button" data-action="toggle-shopping" data-id="${attr(item.id)}" aria-label="${item.done?'Wieder öffnen':'Erledigen'}">${item.done?'✓':'○'}</button><div class="list-main"><strong>${esc(item.name)}</strong><div class="meta"><span>${fmt(item.quantity)} ${esc(item.unit||'')}</span>${item.store?`<span>${esc(item.store)}</span>`:''}${item.source?`<span>${esc(item.source)}</span>`:''}</div></div><button class="icon-button" data-action="delete-shopping" data-id="${attr(item.id)}">×</button></article>`; }
+  function renderShoppingItem(item){ return `<article class="list-item ${item.done?'is-done':''}"><button class="check-button" data-action="toggle-shopping" data-id="${attr(item.id)}" aria-label="${item.done?'Wieder öffnen':'Erledigen'}">${item.done?'✓':'○'}</button><div class="list-main"><strong>${esc(item.name)}</strong><div class="meta"><span>${fmt(item.quantity)} ${esc(item.unit||'')}</span>${item.store?`<span>${esc(item.store)}</span>`:''}${item.source?`<span>${esc(item.source)}</span>`:''}${item.addedToPantry?'<span>im Vorrat</span>':''}</div></div><button class="icon-button" data-action="delete-shopping" data-id="${attr(item.id)}">×</button></article>`; }
 
   function renderPlanning() {
     const week=SKPlanner.normalizeWeek(state.weeklyPlan); const recipes=allRecipes(); const nutrition=SKPlanner.nutritionFromWeek(week,recipes);
@@ -319,6 +324,39 @@
 
   function shoppingForm(item={}) {
     return `<form id="shoppingForm" class="modal-form"><div class="modal-head"><h2>Einkauf hinzufügen</h2>${closeButton()}</div><label>Produkt<input name="name" list="shopIngredientList" value="${attr(item.name||'')}" required><datalist id="shopIngredientList">${(SKData.state.ingredients||[]).map(i=>`<option value="${attr(i.name)}">`).join('')}</datalist></label><div class="form-grid"><label>Menge<input type="number" name="quantity" min="0" step="0.01" value="${attr(item.quantity||1)}"></label><label>Einheit<select name="unit">${['g','kg','ml','l','Stück','Packung','Dose','Glas'].map(x=>`<option>${x}</option>`).join('')}</select></label></div><label>Laden optional<input name="store" value="${attr(item.store||'')}"></label><label>Notiz<textarea name="note" rows="2"></textarea></label><div class="modal-actions"><button class="button primary" type="submit">Hinzufügen</button></div></form>`;
+  }
+
+  function recipeImportForm(values={}) {
+    return `<form id="recipeImportForm" class="modal-form"><div class="modal-head"><div><h2>Rezept importieren</h2><p class="muted small">Für Chefkoch und andere Webseiten per Kopieren & Einfügen. Ein automatisches Auslesen fremder Webseiten ist in GitHub Pages wegen Browser-/CORS-Regeln nicht zuverlässig.</p></div>${closeButton()}</div>
+      <div class="notice"><strong>So geht's:</strong> Rezeptseite öffnen, Zutaten und Zubereitung kopieren, hier einfügen und vor dem Speichern prüfen. Die Quelle wird am Rezept hinterlegt.</div>
+      <div class="form-grid"><label>Quelle<select name="provider"><option ${values.provider==='Chefkoch'?'selected':''}>Chefkoch</option><option ${values.provider==='Andere Webseite'?'selected':''}>Andere Webseite</option></select></label><label>Link zur Quelle<input name="sourceUrl" type="url" inputmode="url" value="${attr(values.sourceUrl||'')}" placeholder="https://..."></label></div>
+      <label>Kompletten Rezepttext einfügen <span class="muted small">optional</span><textarea name="rawText" rows="7" placeholder="Titel\n\nZutaten\n200 g Reis\n2 Paprika\n\nZubereitung\nReis kochen.\nPaprika anbraten.">${esc(values.rawText||'')}</textarea></label>
+      <div class="button-row"><button class="button secondary compact" type="button" data-action="parse-recipe-import">Text automatisch aufteilen</button><button class="button secondary compact" type="button" data-action="search-chefkoch">Chefkoch öffnen</button></div>
+      <hr class="divider">
+      <label>Rezeptname<input name="name" required value="${attr(values.name||'')}"></label>
+      <div class="form-grid"><label>Küche<input name="cuisine" value="${attr(values.cuisine||'Deutsch')}"></label><label>Portionen<input type="number" name="servings" min="0.5" step="0.5" value="${attr(values.servings||2)}"></label></div>
+      <label>Zutaten – eine pro Zeile<textarea name="ingredients" rows="8" required placeholder="200 g Reis\n2 Stück Paprika">${esc(values.ingredients||'')}</textarea></label>
+      <label>Arbeitsschritte – eine Zeile pro Schritt<textarea name="steps" rows="8" required placeholder="200 g Reis nach Packungsangabe kochen.\n2 Paprika würfeln und anbraten.">${esc(values.steps||'')}</textarea></label>
+      <div class="form-grid"><label class="checkbox-row"><input name="vegetarian" type="checkbox" ${values.vegetarian?'checked':''}> Vegetarisch</label><label class="checkbox-row"><input name="vegan" type="checkbox" ${values.vegan?'checked':''}> Vegan</label></div>
+      <div class="notice safety">Importierte Rezepte werden anschließend mit den ausgewählten Personenprofilen geprüft. Unbekannte Zutaten bleiben als „Zutaten prüfen“ bzw. „Unbekannt“ markiert.</div>
+      <div class="modal-actions"><button class="button primary" type="submit">Rezept lokal speichern</button></div></form>`;
+  }
+
+  function parseImportedRecipeText(raw) {
+    const lines=String(raw||'').replace(/\r/g,'').split('\n').map(x=>x.trim()).filter(Boolean);
+    if(!lines.length) return {name:'',ingredients:'',steps:''};
+    const ingIndex=lines.findIndex(x=>/^(zutaten|ingredients)(\s|:|$)/i.test(x));
+    const stepIndex=lines.findIndex((x,i)=>i>(ingIndex>=0?ingIndex:-1)&&/^(zubereitung|zubereitungsschritte|anleitung|instructions?)(\s|:|$)/i.test(x));
+    const name=(ingIndex>0?lines.slice(0,ingIndex):lines.slice(0,1)).find(x=>!/^rezept$/i.test(x))||lines[0]||'';
+    let ingredients=[]; let steps=[];
+    if(ingIndex>=0){ ingredients=lines.slice(ingIndex+1,stepIndex>=0?stepIndex:lines.length); }
+    if(stepIndex>=0){ steps=lines.slice(stepIndex+1).map(x=>x.replace(/^\s*(?:schritt\s*)?\d+[.)\-:]?\s*/i,'')); }
+    if(ingIndex<0&&stepIndex<0){
+      const likelyIngredient=lines.filter(x=>/^(?:\d+(?:[.,]\d+)?|[¼½¾])\s*(?:g|kg|ml|l|el|tl|stück|stueck|dose|packung|glas|bund|zehe)?\b/i.test(x));
+      ingredients=likelyIngredient;
+      const set=new Set(likelyIngredient); steps=lines.slice(1).filter(x=>!set.has(x));
+    }
+    return {name,ingredients:ingredients.join('\n'),steps:steps.join('\n')};
   }
 
   function recipeForm(recipe={}) {
@@ -453,6 +491,21 @@
     return runForm(form,async()=>{ const d=new FormData(form); const id=String(d.get('recordId')||'')||uid('recipe'); const existing=state.userRecipes.find(r=>r.id===id)||{}; const ingredients=String(d.get('ingredients')||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean).map(parseIngredientLine); const steps=String(d.get('steps')||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean); if(!ingredients.length||!steps.length)throw new Error('Bitte Zutaten und Arbeitsschritte eintragen.'); const r={...existing,id,name:String(d.get('name')||'').trim(),cuisine:String(d.get('cuisine')||'Deutsch'),categories:existing.categories||['Eigenes Rezept'],servings:Math.max(.5,num(d.get('servings'))||2),prepTime:Math.max(0,num(d.get('prepTime'))),cookTime:Math.max(0,num(d.get('cookTime'))),ingredients,steps,vegetarian:d.get('vegetarian')==='on',vegan:d.get('vegan')==='on',source:existing.source||{type:'own',provider:'Eigenes Rezept'},updatedAt:new Date().toISOString()}; if(!r.name)throw new Error('Rezeptname fehlt.'); await SKDB.put('recipes',r); await loadState(); closeModal(); render(); showToast('Rezept gespeichert'); });
   }
 
+  async function saveImportedRecipe(form) {
+    return runForm(form,async()=>{
+      const d=new FormData(form);
+      const name=String(d.get('name')||'').trim();
+      const ingredients=String(d.get('ingredients')||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean).map(parseIngredientLine);
+      const steps=String(d.get('steps')||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+      if(!name) throw new Error('Rezeptname fehlt.');
+      if(!ingredients.length||!steps.length) throw new Error('Bitte Zutaten und Arbeitsschritte eintragen.');
+      const provider=String(d.get('provider')||'Andere Webseite');
+      const rawSourceUrl=String(d.get('sourceUrl')||'').trim(); const sourceUrl=rawSourceUrl?safeUrl(rawSourceUrl):'';
+      const recipe={id:uid('recipe'),name,cuisine:String(d.get('cuisine')||'Deutsch'),categories:['Importiert'],servings:Math.max(.5,num(d.get('servings'))||2),prepTime:0,cookTime:0,ingredients,steps,vegetarian:d.get('vegetarian')==='on',vegan:d.get('vegan')==='on',source:{type:'external',provider,url:sourceUrl},sourceUrl,importedAt:new Date().toISOString(),createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+      await SKDB.put('recipes',recipe); await loadState(); closeModal(); render(); showToast('Importiertes Rezept gespeichert');
+    });
+  }
+
   async function saveShopping(form) {
     return runForm(form,async()=>{ const d=new FormData(form); const name=String(d.get('name')||'').trim(); const lib=SKData.ingredient(name); const item={id:uid('shop'),name:lib?.name||name,ingredientId:lib?.id||'',quantity:Math.max(0,num(d.get('quantity'))||1),unit:String(d.get('unit')||lib?.defaultUnit||'Stück'),category:lib?.category||'Sonstiges',store:String(d.get('store')||''),note:String(d.get('note')||''),done:false,source:'manuell',createdAt:new Date().toISOString()}; await SKDB.put('shopping',item); await loadState(); closeModal(); render(); showToast('Zur Einkaufsliste hinzugefügt'); });
   }
@@ -526,9 +579,25 @@
     await addShoppingEntries(items); closeModal(); state.route='shopping'; render(); showToast(`${items.length} Vorschläge hinzugefügt`);
   }
 
+  async function addShoppingItemToPantry(item) {
+    const lib=SKData.ingredient(item.ingredientId||item.name); const amount=num(item.quantity)||1; const unit=item.unit||lib?.defaultUnit||'Stück'; const location=lib?.storage||'Sonstiges';
+    const pantryNow=await SKDB.getAll('pantry');
+    const existing=(pantryNow||[]).find(p=>((lib?.id&&p.ingredientId===lib.id)||normalize(p.name)===normalize(lib?.name||item.name))&&normalize(p.unit)===normalize(unit)&&p.location===location&&!p.expiry&&!p.opened);
+    if(existing){ existing.quantity=num(existing.quantity)+amount; existing.updatedAt=new Date().toISOString(); await SKDB.put('pantry',existing); return {pantryId:existing.id,amount,unit}; }
+    const pantry={id:uid('pantry'),name:lib?.name||item.name,ingredientId:lib?.id||item.ingredientId||'',quantity:amount,unit,location,purchaseDate:todayISO(),expiry:'',opened:false,note:item.note||'',source:'Einkaufsliste',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
+    await SKDB.put('pantry',pantry); return {pantryId:pantry.id,amount,unit};
+  }
+
+  async function reverseShoppingPantryTransfer(item) {
+    const link=item.pantryTransfer; if(!link?.pantryId)return;
+    const pantry=await SKDB.get('pantry',link.pantryId); if(!pantry)return;
+    pantry.quantity=Math.max(0,num(pantry.quantity)-num(link.amount));
+    if(pantry.quantity<=0) await SKDB.delete('pantry',pantry.id); else {pantry.updatedAt=new Date().toISOString(); await SKDB.put('pantry',pantry);}
+  }
+
   async function moveShoppingToPantry(items) {
     let count=0;
-    for(const item of items){ const lib=SKData.ingredient(item.ingredientId||item.name); const pantry={id:uid('pantry'),name:lib?.name||item.name,ingredientId:lib?.id||item.ingredientId||'',quantity:num(item.quantity)||1,unit:item.unit||lib?.defaultUnit||'Stück',location:lib?.storage||'Sonstiges',purchaseDate:todayISO(),expiry:'',opened:false,note:item.note||'',source:'Einkaufsliste',createdAt:new Date().toISOString()}; await SKDB.put('pantry',pantry); item.done=true; await SKDB.delete('shopping',item.id); await logActivity('shopping','Eingekauft',item.name); count++; }
+    for(const item of items.filter(x=>!x.addedToPantry)){ await addShoppingItemToPantry(item); await SKDB.delete('shopping',item.id); await logActivity('shopping','Eingekauft',item.name); count++; }
     await loadState(); render(); showToast(`${count} Produkte zum Vorrat übernommen`);
   }
 
@@ -557,13 +626,26 @@
     if(action==='open-pantry'){ const item=state.pantry.find(p=>p.id===id); if(!item)return; item.opened=true;item.openedDate=todayISO();await SKDB.put('pantry',item);await loadState();closeModal();render();return showToast('Als geöffnet markiert'); }
     if(action==='expired-pantry'){ const item=state.pantry.find(p=>p.id===id); if(!item)return; item.expiry=item.expiry||new Date(Date.now()-86400000).toISOString().slice(0,10);item.note=`${item.note||''}${item.note?' · ':''}Manuell als abgelaufen markiert`;await SKDB.put('pantry',item);await loadState();closeModal();render();return showToast('Als abgelaufen markiert'); }
     if(action==='new-shopping') return openModal(shoppingForm());
-    if(action==='toggle-shopping'){ const item=state.shopping.find(x=>x.id===id); if(!item)return; item.done=!item.done;await SKDB.put('shopping',item);await loadState();return render(); }
+    if(action==='toggle-shopping'){
+      const item=state.shopping.find(x=>x.id===id); if(!item)return;
+      if(!item.done){
+        item.done=true;
+        if(state.settings.shoppingAutoPantry){ item.pantryTransfer=await addShoppingItemToPantry(item); item.addedToPantry=true; await logActivity('shopping','Eingekauft',item.name); }
+      }else{
+        if(item.addedToPantry){ if(!confirm(`${item.name} wurde beim Abhaken in den Vorrat übernommen. Beim Zurücksetzen wird diese Menge wieder abgezogen. Fortfahren?`))return; await reverseShoppingPantryTransfer(item); }
+        item.done=false; item.addedToPantry=false; delete item.pantryTransfer;
+      }
+      item.updatedAt=new Date().toISOString(); await SKDB.put('shopping',item); await loadState(); render();
+      if(item.done&&item.addedToPantry)showToast(`${item.name} abgehakt und zum Vorrat hinzugefügt`);
+      return;
+    }
     if(action==='delete-shopping'){await SKDB.delete('shopping',id);await loadState();return render();}
     if(action==='clear-done'){for(const item of state.shopping.filter(x=>x.done))await SKDB.delete('shopping',item.id);await loadState();return render();}
     if(action==='shopping-generator') return openModal(shoppingGeneratorModal());
     if(action==='generate-shopping') return generateShopping(button.dataset.mode);
-    if(action==='all-bought'){ const open=state.shopping.filter(x=>!x.done); if(!open.length)return; for(const item of open){item.done=true;await SKDB.put('shopping',item);} await loadState(); render(); return showToast(`${open.length} Produkte als eingekauft markiert`); }
+    if(action==='all-bought'){ const open=state.shopping.filter(x=>!x.done); if(!open.length)return; for(const item of open){item.done=true;if(state.settings.shoppingAutoPantry){item.pantryTransfer=await addShoppingItemToPantry(item);item.addedToPantry=true;await logActivity('shopping','Eingekauft',item.name);}item.updatedAt=new Date().toISOString();await SKDB.put('shopping',item);} await loadState(); render(); return showToast(state.settings.shoppingAutoPantry?`${open.length} Produkte eingekauft und zum Vorrat hinzugefügt`:`${open.length} Produkte als eingekauft markiert`); }
     if(action==='done-to-pantry'){ const done=state.shopping.filter(x=>x.done); if(!done.length)return; return moveShoppingToPantry(done); }
+    if(action==='import-recipe') return openModal(recipeImportForm(),'wide');
     if(action==='new-recipe') return openModal(recipeForm(),'wide');
     if(action==='view-recipe'){ const r=recipeById(id); if(r)return openModal(recipeDetail(r,SKRecipes.desiredServings(selectedProfiles())),'wide'); }
     if(action==='save-recipe-copy'){ const r=state.online.results.find(x=>(x.externalId||x.id)===id); if(!r)return; const saved={...normalizeStoredRecipe(r),id:uid('recipe'),source:{...(r.source||{}),type:'external'},createdAt:new Date().toISOString()}; await SKDB.put('recipes',saved);await loadState();closeModal();render();return showToast('Online-Rezept lokal gespeichert'); }
@@ -583,7 +665,9 @@
     if(action==='ocr-receipt'){ const file=document.querySelector('#receiptImage')?.files?.[0]; if(!file)return showToast('Bitte zuerst ein Bonfoto auswählen.'); try{button.disabled=true;button.textContent='OCR 0 %';const text=await SKReceiptOCR.recognize(file,p=>button.textContent=`OCR ${p} %`);document.querySelector('#receiptText').value=text;button.textContent='Foto mit OCR lesen';button.disabled=false;showToast('OCR abgeschlossen – Text bitte prüfen');}catch(e){console.error(e);button.disabled=false;button.textContent='Foto mit OCR lesen';showToast(e.message||'OCR fehlgeschlagen',4000);}return; }
     if(action==='parse-receipt'){ const text=document.querySelector('#receiptText')?.value||'';state.receiptDraft=SKReceiptParser.parseReceiptText(text,state.mappings);return openModal(receiptReviewModal(),'wide'); }
     if(action==='view-online'){ const r=state.online.results.find(x=>(x.externalId||x.id)===id); if(r)return openOnlineRecipe(r); }
-    if(action==='search-chefkoch'){ const q=String(document.querySelector('#onlineSearchForm input[name="query"]')?.value||state.online.query||'Rezepte').trim(); window.open(`https://www.chefkoch.de/rs/s0/${encodeURIComponent(q)}/Rezepte.html`,'_blank','noopener,noreferrer'); return; }
+    if(action==='online-quick-search'){ const q=String(button.dataset.query||'').trim(); if(!q)return; if(state.settings.onlineEnabled===false)return showToast('Externe Rezeptdienste sind deaktiviert.'); state.online={query:q,results:[],loading:true,error:''};render();try{state.online.results=await SKOnline.search(q,12,{source:'themealdb'});}catch(e){state.online.error=e.message||'Online-Suche fehlgeschlagen.';}finally{state.online.loading=false;render();}return; }
+    if(action==='parse-recipe-import'){ const form=button.closest('#recipeImportForm'); if(!form)return; const parsed=parseImportedRecipeText(form.elements.rawText?.value||''); if(parsed.name&&!form.elements.name.value.trim())form.elements.name.value=parsed.name; if(parsed.ingredients)form.elements.ingredients.value=parsed.ingredients; if(parsed.steps)form.elements.steps.value=parsed.steps; return showToast(parsed.ingredients&&parsed.steps?'Text aufgeteilt – bitte kontrollieren':'Text nur teilweise erkannt – bitte Felder ergänzen',3500); }
+    if(action==='search-chefkoch'){ const modalQuery=button.closest('#recipeImportForm')?.elements?.name?.value; const q=String(document.querySelector('#onlineSearchForm input[name="query"]')?.value||modalQuery||state.online.query||'Rezepte').trim(); window.open(`https://www.chefkoch.de/rs/s0/${encodeURIComponent(q)}/Rezepte.html`,'_blank','noopener,noreferrer'); return; }
     if(action==='auto-plan-settings') return openModal(autoPlanModal());
     if(action==='week-shopping'){ const items=SKPlanner.shoppingFromWeek(state.weeklyPlan,allRecipes(),state.pantry);await addShoppingEntries(items);state.route='shopping';render();return showToast(`${items.length} fehlende Zutaten übernommen`); }
     if(action==='clear-week'){ if(!confirm('Wochenplan leeren?'))return;state.weeklyPlan=SKPlanner.emptyWeek();await SKDB.put('weeklyPlan',state.weeklyPlan);return render(); }
@@ -598,6 +682,7 @@
     if(form.id==='profileForm') return saveProfile(form);
     if(form.id==='pantryForm') return savePantry(form);
     if(form.id==='recipeForm') return saveRecipe(form);
+    if(form.id==='recipeImportForm') return saveImportedRecipe(form);
     if(form.id==='shoppingForm') return saveShopping(form);
     if(form.id==='onlineSearchForm') return searchOnline(form);
     if(form.id==='receiptReviewForm') return addReceiptProducts(form);
@@ -619,6 +704,7 @@
     if(t.matches('[data-plan-day][data-plan-slot]')) return savePlanSlot(t.dataset.planDay,t.dataset.planSlot,t.value);
     if(t.id==='recipeFilter'){await saveSettings({recipeFilter:t.value});return render();}
     if(t.id==='pantryLocation'){await saveSettings({pantryLocation:t.value});return render();}
+    if(t.id==='shoppingAutoPantry'){await saveSettings({shoppingAutoPantry:t.checked});return render();}
     if(t.id==='localModeEnabled'){await saveSettings(t.checked?{localMode:true,onlineEnabled:false,ocrEnabled:false}:{localMode:false});return render();}
     if(t.id==='onlineEnabled'){await saveSettings({onlineEnabled:t.checked,localMode:t.checked?false:state.settings.localMode});return render();}
     if(t.id==='ocrEnabled'){await saveSettings({ocrEnabled:t.checked,localMode:t.checked?false:state.settings.localMode});return render();}

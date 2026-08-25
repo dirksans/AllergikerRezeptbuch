@@ -1,9 +1,9 @@
-SICHERKOCHEN 3.5.0 – START HIER
+SICHERKOCHEN 3.5.1 – START HIER
 
 1. In der bisherigen SicherKochen-App zuerst „Daten exportieren“ ausführen.
 2. Diese ZIP vollständig entpacken.
 3. Im bestehenden GitHub-Repository „Add file → Upload files“ öffnen.
-4. Den INHALT des Ordners SicherKochen-3.5.0 hochladen, nicht den äußeren Ordner selbst.
+4. Den INHALT des Ordners SicherKochen-3.5.1 hochladen, nicht den äußeren Ordner selbst.
 5. Gleichnamige Dateien ersetzen und committen.
 6. Danach alte Root-Dateien app.js, db.js, online-recipes.js, styles.css, sw.js und den alten Ordner icons/ entfernen, wenn die neue Version erfolgreich hochgeladen wurde.
 7. GitHub Pages weiterhin aus main / (root) veröffentlichen.

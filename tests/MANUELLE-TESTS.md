@@ -1,4 +1,4 @@
-# Manuelle Tests – SicherKochen 3.5.0
+# Manuelle Tests – SicherKochen 3.5.1
 
 ## Vor jedem Update
 
@@ -9,7 +9,7 @@
 ## Test 1 – Migration von Version 3
 
 1. Version 3 mit vorhandenen Daten öffnen.
-2. Version 3.5.0 unter derselben GitHub-Pages-Adresse deployen.
+2. Version 3.5.1 unter derselben GitHub-Pages-Adresse deployen.
 3. `App aktualisieren` ausführen.
 4. Prüfen:
    - [ ] Personen sind vorhanden.
@@ -221,7 +221,7 @@ Erwartung:
 
 ## Test 17 – Service Worker Update
 
-1. App mit Version 3.5.0 öffnen.
+1. App mit Version 3.5.1 öffnen.
 2. Eine Teständerung mit neuer Cache-Version deployen.
 3. `App aktualisieren` verwenden.
 
@@ -239,3 +239,12 @@ Erwartung:
 - [ ] Eingabefelder zoomen nicht unerwartet.
 - [ ] Dark Mode bleibt lesbar.
 - [ ] Kochmodus ist mit einer Hand bedienbar.
+
+
+## Regression 3.5.1
+
+1. Person mit Namen „Test“ anlegen → muss gespeichert werden.
+2. Vorrat „Paprika“, Menge 2 anlegen → darf nicht „Lebensmittel fehlt“ melden.
+3. Online-Rezeptsuche „Curry“ absenden → Suchbegriff muss verarbeitet werden.
+4. Einkauf „Brokkoli 1 Stück“ anlegen, Auto-Vorrat aktivieren, abhaken → Vorrat enthält Brokkoli; Haken zurücksetzen → verbuchte Menge wird wieder entfernt.
+5. Rezeptimport öffnen, Titel/Zutaten/Schritte eintragen und speichern → Rezept erscheint lokal in der Bibliothek.

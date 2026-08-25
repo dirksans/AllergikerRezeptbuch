@@ -1,4 +1,4 @@
-const VERSION = '3.5.0';
+const VERSION = '3.5.1';
 const CACHE_NAME = `sicherkochen-${VERSION}`;
 const APP_SHELL = [
   './','./index.html','./manifest.webmanifest','./css/style.css',

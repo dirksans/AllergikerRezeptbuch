@@ -1,6 +1,15 @@
-# SicherKochen 3.5.0 – Küchenassistent
+# SicherKochen 3.5.1 – Küchenassistent
 
 SicherKochen ist eine installierbare iPhone-PWA für Vorrat, Rezepte, Personenprofile, Allergieprüfung, Einkaufslisten, Kassenbon-Erfassung, Resteverwertung und Wochenplanung. Die App ist für GitHub Pages ausgelegt und funktioniert in den Kernbereichen ohne eigenes Backend.
+
+## Neu in 3.5.1
+
+- Formularfehler behoben: Personen, Vorrat, eigene Rezepte und Einkaufsprodukte lassen sich wieder korrekt speichern.
+- Ursache war, dass Formularfelder vor dem Auslesen deaktiviert wurden; deaktivierte Felder werden von `FormData` nicht übertragen.
+- Unter **Rezepte → Importieren** können Rezepte von Chefkoch oder anderen Webseiten per Kopieren/Einfügen lokal übernommen werden. Ein direkter URL-Scraper ist in einer reinen GitHub-Pages-App wegen CORS und fehlender offizieller Chefkoch-Schnittstelle nicht zuverlässig.
+- Unter **Rezepte → Online-Rezepte** gibt es Schnellthemen zum Entdecken neuer Rezepte sowie die TheMealDB-Suche.
+- Unter **Einkauf** kann **„Beim Abhaken direkt zum Vorrat“** aktiviert werden. Die automatisch verbuchte Menge wird beim Zurücksetzen des Hakens wieder aus dem Vorrat abgezogen.
+
 
 ## Sicherheitsprinzip
 
@@ -98,14 +107,14 @@ Die normale Aktualisierung unter derselben GitHub-Pages-Adresse löscht IndexedD
 
 ## 2. ZIP entpacken
 
-`SicherKochen-3.5.0.zip` entpacken.
+`SicherKochen-3.5.1.zip` entpacken.
 
 Im entpackten Ordner muss direkt `index.html` liegen.
 
 Richtig:
 
 ```text
-SicherKochen-3.5.0/
+SicherKochen-3.5.1/
 ├── index.html
 ├── service-worker.js
 ├── manifest.webmanifest
@@ -136,7 +145,7 @@ Falsch:
 
 ```text
 repository/
-└── SicherKochen-3.5.0/
+└── SicherKochen-3.5.1/
     └── index.html
 ```
 
