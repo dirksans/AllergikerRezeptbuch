@@ -1,0 +1,2783 @@
+[
+  {
+    "id": "r01",
+    "name": "Blumenkohl-Kokos-Curry",
+    "description": "Blumenkohl-Kokos-Curry – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Indisch",
+    "categories": [
+      "Currys",
+      "Resteverwertung"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "blumenkohl",
+        "amount": 500,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kokosmilch",
+        "amount": 400,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "rote-linsen",
+        "amount": 120,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "curry",
+        "amount": 2,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "kurkuma",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:zwiebel}} würfeln und in {{ing:rapsoel}} 3 Minuten anbraten.",
+        "ingredientRefs": [
+          "zwiebel",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:blumenkohl}} in kleine Röschen teilen, mit {{ing:curry}} und {{ing:kurkuma}} zugeben und 2 Minuten mitrösten.",
+        "ingredientRefs": [
+          "blumenkohl",
+          "curry",
+          "kurkuma"
+        ]
+      },
+      {
+        "text": "{{ing:kokosmilch}} und {{ing:rote-linsen}} einrühren und etwa 15 Minuten sanft köcheln, bis die Linsen weich sind.",
+        "ingredientRefs": [
+          "kokosmilch",
+          "rote-linsen"
+        ]
+      },
+      {
+        "text": "Mit {{ing:salz}} abschmecken. Bei Gewürzmischungen die Zutatenliste prüfen.",
+        "ingredientRefs": [
+          "salz"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r02",
+    "name": "Mediterrane Gemüsepfanne mit Kichererbsen",
+    "description": "Mediterrane Gemüsepfanne mit Kichererbsen – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Mediterran",
+    "categories": [
+      "Bowls",
+      "Resteverwertung"
+    ],
+    "servings": 2,
+    "prepTime": 12,
+    "cookTime": 18,
+    "ingredients": [
+      {
+        "ingredientId": "zucchini",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "aubergine",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "kichererbsen",
+        "amount": 240,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "passierte-tomaten",
+        "amount": 250,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "oregano",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 2,
+        "unit": "Zehe",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:zucchini}}, {{ing:paprika}} und {{ing:aubergine}} würfeln.",
+        "ingredientRefs": [
+          "zucchini",
+          "paprika",
+          "aubergine"
+        ]
+      },
+      {
+        "text": "{{ing:olivenoel}} erhitzen, {{ing:knoblauch}} fein hacken und mit dem Gemüse 7 Minuten anbraten.",
+        "ingredientRefs": [
+          "olivenoel",
+          "knoblauch"
+        ]
+      },
+      {
+        "text": "{{ing:kichererbsen}}, {{ing:passierte-tomaten}} und {{ing:oregano}} zugeben und 10 Minuten köcheln.",
+        "ingredientRefs": [
+          "kichererbsen",
+          "passierte-tomaten",
+          "oregano"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r03",
+    "name": "Brokkoli-Reis-Bowl mit Edamame",
+    "description": "Brokkoli-Reis-Bowl mit Edamame – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Japanisch",
+    "categories": [
+      "Reis",
+      "Bowls",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "basmatireis",
+        "amount": 160,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "brokkoli",
+        "amount": 350,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "edamame",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "karotte",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "sojasosse",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "ingwer",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:basmatireis}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "basmatireis"
+        ]
+      },
+      {
+        "text": "{{ing:brokkoli}} teilen und {{ing:karotte}} in Streifen schneiden. Beides in {{ing:rapsoel}} 7 Minuten braten.",
+        "ingredientRefs": [
+          "brokkoli",
+          "karotte",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:edamame}} und {{ing:ingwer}} zugeben und 5 Minuten erhitzen.",
+        "ingredientRefs": [
+          "edamame",
+          "ingwer"
+        ]
+      },
+      {
+        "text": "Mit {{ing:sojasosse}} würzen. Sojasoße vor Verwendung auf passende Allergenkennzeichnung prüfen.",
+        "ingredientRefs": [
+          "sojasosse"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r04",
+    "name": "Tomaten-Linsen-Pasta",
+    "description": "Tomaten-Linsen-Pasta – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Italienisch",
+    "categories": [
+      "Pasta",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 8,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "pasta",
+        "amount": 220,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rote-linsen",
+        "amount": 100,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "passierte-tomaten",
+        "amount": 400,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 2,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "oregano",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:pasta}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "pasta"
+        ]
+      },
+      {
+        "text": "{{ing:zwiebel}} und {{ing:knoblauch}} hacken und in {{ing:olivenoel}} 3 Minuten anschwitzen.",
+        "ingredientRefs": [
+          "zwiebel",
+          "knoblauch",
+          "olivenoel"
+        ]
+      },
+      {
+        "text": "{{ing:passierte-tomaten}}, {{ing:rote-linsen}} und {{ing:oregano}} zugeben und 15 Minuten köcheln.",
+        "ingredientRefs": [
+          "passierte-tomaten",
+          "rote-linsen",
+          "oregano"
+        ]
+      },
+      {
+        "text": "Die gegarte {{ing:pasta}} unter die Sauce mischen.",
+        "ingredientRefs": [
+          "pasta"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r05",
+    "name": "Süßkartoffel-Bohnen-Blech",
+    "description": "Süßkartoffel-Bohnen-Blech – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Mexikanisch",
+    "categories": [
+      "Ofengerichte",
+      "Kartoffeln"
+    ],
+    "servings": 2,
+    "prepTime": 12,
+    "cookTime": 30,
+    "ingredients": [
+      {
+        "ingredientId": "suesskartoffeln",
+        "amount": 600,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kidneybohnen",
+        "amount": 240,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "mais",
+        "amount": 150,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 2,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "kreuzkuemmel",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Backofen auf 210 °C Ober-/Unterhitze vorheizen. {{ing:suesskartoffeln}} würfeln und mit {{ing:rapsoel}} und {{ing:paprikapulver}} mischen.",
+        "ingredientRefs": [
+          "suesskartoffeln",
+          "rapsoel",
+          "paprikapulver"
+        ]
+      },
+      {
+        "text": "Die Süßkartoffeln 15 Minuten backen. Danach {{ing:paprika}}, {{ing:kidneybohnen}}, {{ing:mais}} und {{ing:kreuzkuemmel}} zugeben.",
+        "ingredientRefs": [
+          "paprika",
+          "kidneybohnen",
+          "mais",
+          "kreuzkuemmel"
+        ]
+      },
+      {
+        "text": "Weitere 15 Minuten backen und vor dem Servieren abschmecken.",
+        "ingredientRefs": []
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r06",
+    "name": "Udon-Gemüsepfanne mit Tofu",
+    "description": "Udon-Gemüsepfanne mit Tofu – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Japanisch",
+    "categories": [
+      "asiatisch",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 15,
+    "ingredients": [
+      {
+        "ingredientId": "udon",
+        "amount": 220,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "tofu",
+        "amount": 250,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "zucchini",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "karotte",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "fruehlingszwiebel",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "sojasosse",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "sriracha",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:udon}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "udon"
+        ]
+      },
+      {
+        "text": "{{ing:tofu}} würfeln und in {{ing:rapsoel}} 5 Minuten knusprig braten.",
+        "ingredientRefs": [
+          "tofu",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:zucchini}}, {{ing:karotte}} und {{ing:fruehlingszwiebel}} schneiden und 5 Minuten mitbraten.",
+        "ingredientRefs": [
+          "zucchini",
+          "karotte",
+          "fruehlingszwiebel"
+        ]
+      },
+      {
+        "text": "{{ing:udon}} mit {{ing:sojasosse}} und {{ing:sriracha}} unterheben und 2 Minuten erhitzen.",
+        "ingredientRefs": [
+          "udon",
+          "sojasosse",
+          "sriracha"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r07",
+    "name": "Kartoffel-Spinat-Pfanne",
+    "description": "Kartoffel-Spinat-Pfanne – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Kartoffeln",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 600,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "spinat",
+        "amount": 250,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 1,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "muskat",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kartoffeln}} in 1–2 cm große Würfel schneiden und in {{ing:rapsoel}} bei mittlerer Hitze etwa 12 Minuten braten.",
+        "ingredientRefs": [
+          "kartoffeln",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:zwiebel}} und {{ing:knoblauch}} fein schneiden und 3 Minuten mitbraten.",
+        "ingredientRefs": [
+          "zwiebel",
+          "knoblauch"
+        ]
+      },
+      {
+        "text": "{{ing:spinat}} zugeben, zusammenfallen lassen und mit {{ing:muskat}} und {{ing:salz}} würzen.",
+        "ingredientRefs": [
+          "spinat",
+          "muskat",
+          "salz"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r08",
+    "name": "Couscous-Gemüse-Bowl",
+    "description": "Couscous-Gemüse-Bowl – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Orientalisch",
+    "categories": [
+      "Bowls",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 15,
+    "ingredients": [
+      {
+        "ingredientId": "couscous",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "gurke",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "tomate",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "kichererbsen",
+        "amount": 200,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "tahin",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "zitronensaft",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "petersilie",
+        "amount": 2,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:couscous}} nach Packungsangabe quellen lassen.",
+        "ingredientRefs": [
+          "couscous"
+        ]
+      },
+      {
+        "text": "{{ing:paprika}}, {{ing:gurke}} und {{ing:tomate}} klein schneiden und mit {{ing:kichererbsen}} mischen.",
+        "ingredientRefs": [
+          "paprika",
+          "gurke",
+          "tomate",
+          "kichererbsen"
+        ]
+      },
+      {
+        "text": "{{ing:tahin}} mit {{ing:zitronensaft}} und etwas Wasser verrühren und über die Bowl geben.",
+        "ingredientRefs": [
+          "tahin",
+          "zitronensaft"
+        ]
+      },
+      {
+        "text": "Mit {{ing:petersilie}} bestreuen.",
+        "ingredientRefs": [
+          "petersilie"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r09",
+    "name": "Bulgur-Paprika-Pfanne",
+    "description": "Bulgur-Paprika-Pfanne – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Orientalisch",
+    "categories": [
+      "Bowls",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 8,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "bulgur",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "zucchini",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "stueckige-tomaten",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kichererbsen",
+        "amount": 150,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kreuzkuemmel",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:bulgur}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "bulgur"
+        ]
+      },
+      {
+        "text": "{{ing:paprika}} und {{ing:zucchini}} würfeln und 6 Minuten anbraten.",
+        "ingredientRefs": [
+          "paprika",
+          "zucchini"
+        ]
+      },
+      {
+        "text": "{{ing:stueckige-tomaten}}, {{ing:kichererbsen}}, {{ing:kreuzkuemmel}} und {{ing:paprikapulver}} zugeben und 8 Minuten köcheln.",
+        "ingredientRefs": [
+          "stueckige-tomaten",
+          "kichererbsen",
+          "kreuzkuemmel",
+          "paprikapulver"
+        ]
+      },
+      {
+        "text": "Den gegarten {{ing:bulgur}} unterheben.",
+        "ingredientRefs": [
+          "bulgur"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r10",
+    "name": "Reisnudel-Gemüse-Suppe",
+    "description": "Reisnudel-Gemüse-Suppe – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Thailändisch",
+    "categories": [
+      "Suppen",
+      "asiatisch"
+    ],
+    "servings": 2,
+    "prepTime": 12,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "reisnudeln",
+        "amount": 160,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "gemuesebruehe",
+        "amount": 800,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "karotte",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "champignons",
+        "amount": 200,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "spinat",
+        "amount": 150,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "ingwer",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "sriracha",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:gemuesebruehe}} aufkochen. Bei fertiger Brühe die Zutatenliste prüfen.",
+        "ingredientRefs": [
+          "gemuesebruehe"
+        ]
+      },
+      {
+        "text": "{{ing:karotte}} und {{ing:champignons}} schneiden, mit {{ing:ingwer}} in die Brühe geben und 8 Minuten garen.",
+        "ingredientRefs": [
+          "karotte",
+          "champignons",
+          "ingwer"
+        ]
+      },
+      {
+        "text": "{{ing:reisnudeln}} und {{ing:spinat}} zugeben und nach Nudelpackung fertig garen.",
+        "ingredientRefs": [
+          "reisnudeln",
+          "spinat"
+        ]
+      },
+      {
+        "text": "Mit {{ing:sriracha}} abschmecken.",
+        "ingredientRefs": [
+          "sriracha"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r11",
+    "name": "Gnocchi-Tomaten-Pfanne",
+    "description": "Gnocchi-Tomaten-Pfanne – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Italienisch",
+    "categories": [
+      "Pasta",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 8,
+    "cookTime": 15,
+    "ingredients": [
+      {
+        "ingredientId": "gnocchi",
+        "amount": 500,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "tomate",
+        "amount": 4,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "zucchini",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 1,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "basilikum",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:gnocchi}} in {{ing:olivenoel}} 5 Minuten goldbraun braten.",
+        "ingredientRefs": [
+          "gnocchi",
+          "olivenoel"
+        ]
+      },
+      {
+        "text": "{{ing:zucchini}} würfeln und {{ing:knoblauch}} hacken, beides 4 Minuten mitbraten.",
+        "ingredientRefs": [
+          "zucchini",
+          "knoblauch"
+        ]
+      },
+      {
+        "text": "{{ing:tomate}} würfeln, mit {{ing:basilikum}} zugeben und 4 Minuten erhitzen.",
+        "ingredientRefs": [
+          "tomate",
+          "basilikum"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r12",
+    "name": "Linsen-Kartoffel-Eintopf",
+    "description": "Linsen-Kartoffel-Eintopf – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Suppen",
+      "Kartoffeln"
+    ],
+    "servings": 3,
+    "prepTime": 12,
+    "cookTime": 35,
+    "ingredients": [
+      {
+        "ingredientId": "berglinsen",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 500,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "karotte",
+        "amount": 3,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "lauch",
+        "amount": 150,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "gemuesebruehe",
+        "amount": 1000,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "lorbeer",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "majoran",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kartoffeln}} und {{ing:karotte}} würfeln, {{ing:lauch}} in Ringe schneiden.",
+        "ingredientRefs": [
+          "kartoffeln",
+          "karotte",
+          "lauch"
+        ]
+      },
+      {
+        "text": "{{ing:berglinsen}} mit {{ing:gemuesebruehe}} und {{ing:lorbeer}} aufkochen. Fertige Brühe auf Allergene prüfen.",
+        "ingredientRefs": [
+          "berglinsen",
+          "gemuesebruehe",
+          "lorbeer"
+        ]
+      },
+      {
+        "text": "Das Gemüse zugeben und etwa 30 Minuten köcheln.",
+        "ingredientRefs": []
+      },
+      {
+        "text": "Mit {{ing:majoran}} abschmecken.",
+        "ingredientRefs": [
+          "majoran"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r13",
+    "name": "Airfryer-Brokkoli-Kartoffeln",
+    "description": "Airfryer-Brokkoli-Kartoffeln – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "International",
+    "categories": [
+      "Airfryer",
+      "Kartoffeln"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 25,
+    "ingredients": [
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 550,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "brokkoli",
+        "amount": 350,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 1.5,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauchpulver",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kartoffeln}} würfeln und mit {{ing:rapsoel}}, {{ing:paprikapulver}}, {{ing:knoblauchpulver}} und {{ing:salz}} mischen.",
+        "ingredientRefs": [
+          "kartoffeln",
+          "rapsoel",
+          "paprikapulver",
+          "knoblauchpulver",
+          "salz"
+        ]
+      },
+      {
+        "text": "Die Kartoffeln im Airfryer bei 190 °C 15 Minuten garen und zwischendurch schütteln.",
+        "ingredientRefs": []
+      },
+      {
+        "text": "{{ing:brokkoli}} zugeben und weitere 8–10 Minuten garen.",
+        "ingredientRefs": [
+          "brokkoli"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r14",
+    "name": "Tofu-Tacos mit Bohnen",
+    "description": "Tofu-Tacos mit Bohnen – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Mexikanisch",
+    "categories": [
+      "Wraps/Tacos"
+    ],
+    "servings": 2,
+    "prepTime": 15,
+    "cookTime": 15,
+    "ingredients": [
+      {
+        "ingredientId": "wraps",
+        "amount": 4,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "tofu",
+        "amount": 250,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "schwarze-bohnen",
+        "amount": 200,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "mais",
+        "amount": 100,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "sriracha",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "kreuzkuemmel",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:tofu}} zerbröseln und in {{ing:rapsoel}} 5 Minuten anbraten.",
+        "ingredientRefs": [
+          "tofu",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:paprika}} würfeln und mit {{ing:schwarze-bohnen}}, {{ing:mais}} und {{ing:kreuzkuemmel}} 5 Minuten mitbraten.",
+        "ingredientRefs": [
+          "paprika",
+          "schwarze-bohnen",
+          "mais",
+          "kreuzkuemmel"
+        ]
+      },
+      {
+        "text": "{{ing:wraps}} erwärmen, füllen und mit {{ing:sriracha}} servieren.",
+        "ingredientRefs": [
+          "wraps",
+          "sriracha"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r15",
+    "name": "Hähnchen-Reis-Gemüse-Pfanne",
+    "description": "Hähnchen-Reis-Gemüse-Pfanne – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "International",
+    "categories": [
+      "Reis",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "haehnchen",
+        "amount": 320,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "reis",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "brokkoli",
+        "amount": 250,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:reis}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "reis"
+        ]
+      },
+      {
+        "text": "{{ing:haehnchen}} in Stücke schneiden und in {{ing:rapsoel}} vollständig durchgaren.",
+        "ingredientRefs": [
+          "haehnchen",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:paprika}} und {{ing:brokkoli}} zugeben und 7 Minuten mitbraten.",
+        "ingredientRefs": [
+          "paprika",
+          "brokkoli"
+        ]
+      },
+      {
+        "text": "Mit {{ing:paprikapulver}} und {{ing:salz}} würzen und mit dem {{ing:reis}} servieren.",
+        "ingredientRefs": [
+          "paprikapulver",
+          "salz",
+          "reis"
+        ]
+      }
+    ],
+    "vegetarian": false,
+    "vegan": false,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r16",
+    "name": "Lachs mit Ofenkartoffeln und Brokkoli",
+    "description": "Lachs mit Ofenkartoffeln und Brokkoli – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Ofengerichte",
+      "Fisch"
+    ],
+    "servings": 2,
+    "prepTime": 12,
+    "cookTime": 30,
+    "ingredients": [
+      {
+        "ingredientId": "lachs",
+        "amount": 320,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 600,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "brokkoli",
+        "amount": 350,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "dill",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Backofen auf 210 °C vorheizen. {{ing:kartoffeln}} würfeln, mit {{ing:olivenoel}} mischen und 15 Minuten backen.",
+        "ingredientRefs": [
+          "kartoffeln",
+          "olivenoel"
+        ]
+      },
+      {
+        "text": "{{ing:brokkoli}} und {{ing:lachs}} auf das Blech geben und weitere 12–15 Minuten garen, bis der Fisch durchgegart ist.",
+        "ingredientRefs": [
+          "brokkoli",
+          "lachs"
+        ]
+      },
+      {
+        "text": "Mit {{ing:dill}} und {{ing:salz}} würzen.",
+        "ingredientRefs": [
+          "dill",
+          "salz"
+        ]
+      }
+    ],
+    "vegetarian": false,
+    "vegan": false,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r17",
+    "name": "Rind-Brokkoli-Reis",
+    "description": "Rind-Brokkoli-Reis – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Chinesisch",
+    "categories": [
+      "Reis",
+      "asiatisch"
+    ],
+    "servings": 2,
+    "prepTime": 12,
+    "cookTime": 18,
+    "ingredients": [
+      {
+        "ingredientId": "rind",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "brokkoli",
+        "amount": 350,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "jasminreis",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "sojasosse",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "ingwer",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 1,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:jasminreis}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "jasminreis"
+        ]
+      },
+      {
+        "text": "{{ing:rind}} in dünne Streifen schneiden und in {{ing:rapsoel}} kräftig anbraten.",
+        "ingredientRefs": [
+          "rind",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:brokkoli}}, {{ing:ingwer}} und {{ing:knoblauch}} zugeben und 6 Minuten braten.",
+        "ingredientRefs": [
+          "brokkoli",
+          "ingwer",
+          "knoblauch"
+        ]
+      },
+      {
+        "text": "Mit {{ing:sojasosse}} ablöschen und mit {{ing:jasminreis}} servieren. Produktkennzeichnung der Sojasoße prüfen.",
+        "ingredientRefs": [
+          "sojasosse",
+          "jasminreis"
+        ]
+      }
+    ],
+    "vegetarian": false,
+    "vegan": false,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r18",
+    "name": "Hack-Paprika-Kartoffel-Pfanne",
+    "description": "Hack-Paprika-Kartoffel-Pfanne – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Kartoffeln",
+      "Pfannengerichte"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 25,
+    "ingredients": [
+      {
+        "ingredientId": "hackfleisch",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 550,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 2,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kartoffeln}} würfeln und in {{ing:rapsoel}} 10 Minuten braten.",
+        "ingredientRefs": [
+          "kartoffeln",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:zwiebel}} würfeln und {{ing:hackfleisch}} zugeben; das Hack vollständig durchgaren.",
+        "ingredientRefs": [
+          "zwiebel",
+          "hackfleisch"
+        ]
+      },
+      {
+        "text": "{{ing:paprika}} und {{ing:paprikapulver}} zugeben und weitere 8 Minuten braten.",
+        "ingredientRefs": [
+          "paprika",
+          "paprikapulver"
+        ]
+      }
+    ],
+    "vegetarian": false,
+    "vegan": false,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r19",
+    "name": "Pilz-Spinat-Pasta",
+    "description": "Pilz-Spinat-Pasta – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Italienisch",
+    "categories": [
+      "Pasta",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 8,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "pasta",
+        "amount": 220,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "champignons",
+        "amount": 250,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "spinat",
+        "amount": 200,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "pflanzencreme",
+        "amount": 180,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 1,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "muskat",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:pasta}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "pasta"
+        ]
+      },
+      {
+        "text": "{{ing:champignons}} schneiden und mit {{ing:knoblauch}} in {{ing:olivenoel}} 6 Minuten braten.",
+        "ingredientRefs": [
+          "champignons",
+          "knoblauch",
+          "olivenoel"
+        ]
+      },
+      {
+        "text": "{{ing:spinat}}, {{ing:pflanzencreme}} und {{ing:muskat}} zugeben und 4 Minuten köcheln.",
+        "ingredientRefs": [
+          "spinat",
+          "pflanzencreme",
+          "muskat"
+        ]
+      },
+      {
+        "text": "Mit der {{ing:pasta}} vermengen. Bei Kochcreme die Zutatenliste prüfen.",
+        "ingredientRefs": [
+          "pasta"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r20",
+    "name": "Auberginen-Tomaten-Reis",
+    "description": "Auberginen-Tomaten-Reis – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Mediterran",
+    "categories": [
+      "Reis",
+      "Pfannengerichte"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 25,
+    "ingredients": [
+      {
+        "ingredientId": "aubergine",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "reis",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "stueckige-tomaten",
+        "amount": 400,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 2,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "oregano",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:reis}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "reis"
+        ]
+      },
+      {
+        "text": "{{ing:aubergine}} würfeln und in {{ing:olivenoel}} 8 Minuten braten.",
+        "ingredientRefs": [
+          "aubergine",
+          "olivenoel"
+        ]
+      },
+      {
+        "text": "{{ing:zwiebel}} und {{ing:knoblauch}} zugeben und 3 Minuten mitbraten.",
+        "ingredientRefs": [
+          "zwiebel",
+          "knoblauch"
+        ]
+      },
+      {
+        "text": "{{ing:stueckige-tomaten}} und {{ing:oregano}} einrühren, 10 Minuten köcheln und mit {{ing:reis}} servieren.",
+        "ingredientRefs": [
+          "stueckige-tomaten",
+          "oregano",
+          "reis"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r21",
+    "name": "Kürbis-Linsen-Suppe",
+    "description": "Kürbis-Linsen-Suppe – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Suppen",
+      "Resteverwertung"
+    ],
+    "servings": 3,
+    "prepTime": 12,
+    "cookTime": 30,
+    "ingredients": [
+      {
+        "ingredientId": "kuerbis",
+        "amount": 700,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rote-linsen",
+        "amount": 130,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "gemuesebruehe",
+        "amount": 900,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "curry",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kuerbis}} würfeln und {{ing:zwiebel}} hacken.",
+        "ingredientRefs": [
+          "kuerbis",
+          "zwiebel"
+        ]
+      },
+      {
+        "text": "{{ing:zwiebel}} in {{ing:rapsoel}} 3 Minuten anschwitzen, dann den Kürbis zugeben.",
+        "ingredientRefs": [
+          "zwiebel",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:rote-linsen}}, {{ing:gemuesebruehe}} und {{ing:curry}} zugeben und 22 Minuten köcheln. Brühe und Gewürzmischung auf Allergene prüfen.",
+        "ingredientRefs": [
+          "rote-linsen",
+          "gemuesebruehe",
+          "curry"
+        ]
+      },
+      {
+        "text": "Nach Wunsch pürieren.",
+        "ingredientRefs": []
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r22",
+    "name": "Rosenkohl-Kartoffel-Blech",
+    "description": "Rosenkohl-Kartoffel-Blech – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Ofengerichte",
+      "Kartoffeln"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 30,
+    "ingredients": [
+      {
+        "ingredientId": "rosenkohl",
+        "amount": 450,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 550,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "thymian",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Backofen auf 210 °C vorheizen. {{ing:kartoffeln}} würfeln und {{ing:rosenkohl}} halbieren.",
+        "ingredientRefs": [
+          "kartoffeln",
+          "rosenkohl"
+        ]
+      },
+      {
+        "text": "Mit {{ing:rapsoel}}, {{ing:thymian}}, {{ing:paprikapulver}} und {{ing:salz}} mischen.",
+        "ingredientRefs": [
+          "rapsoel",
+          "thymian",
+          "paprikapulver",
+          "salz"
+        ]
+      },
+      {
+        "text": "Auf einem Blech 25–30 Minuten backen und nach der Hälfte wenden.",
+        "ingredientRefs": []
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r23",
+    "name": "Kichererbsen-Tomaten-Couscous",
+    "description": "Kichererbsen-Tomaten-Couscous – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Orientalisch",
+    "categories": [
+      "Bowls",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 8,
+    "cookTime": 18,
+    "ingredients": [
+      {
+        "ingredientId": "couscous",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kichererbsen",
+        "amount": 240,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "stueckige-tomaten",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "kreuzkuemmel",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "koriander",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:couscous}} nach Packungsangabe quellen lassen.",
+        "ingredientRefs": [
+          "couscous"
+        ]
+      },
+      {
+        "text": "{{ing:paprika}} würfeln und 5 Minuten anbraten.",
+        "ingredientRefs": [
+          "paprika"
+        ]
+      },
+      {
+        "text": "{{ing:kichererbsen}}, {{ing:stueckige-tomaten}}, {{ing:kreuzkuemmel}} und {{ing:koriander}} zugeben und 8 Minuten köcheln.",
+        "ingredientRefs": [
+          "kichererbsen",
+          "stueckige-tomaten",
+          "kreuzkuemmel",
+          "koriander"
+        ]
+      },
+      {
+        "text": "Mit dem {{ing:couscous}} servieren.",
+        "ingredientRefs": [
+          "couscous"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r24",
+    "name": "Bohnen-Mais-Wraps",
+    "description": "Bohnen-Mais-Wraps – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Mexikanisch",
+    "categories": [
+      "Wraps/Tacos",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 12,
+    "ingredients": [
+      {
+        "ingredientId": "wraps",
+        "amount": 4,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "kidneybohnen",
+        "amount": 240,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "mais",
+        "amount": 150,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "tomate",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprika",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "sriracha",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "kreuzkuemmel",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kidneybohnen}}, {{ing:mais}} und gewürfelte {{ing:paprika}} 7 Minuten erhitzen.",
+        "ingredientRefs": [
+          "kidneybohnen",
+          "mais",
+          "paprika"
+        ]
+      },
+      {
+        "text": "{{ing:tomate}} würfeln und unterheben.",
+        "ingredientRefs": [
+          "tomate"
+        ]
+      },
+      {
+        "text": "Mit {{ing:kreuzkuemmel}} und {{ing:sriracha}} würzen.",
+        "ingredientRefs": [
+          "kreuzkuemmel",
+          "sriracha"
+        ]
+      },
+      {
+        "text": "{{ing:wraps}} erwärmen und mit der Bohnenmischung füllen.",
+        "ingredientRefs": [
+          "wraps"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r25",
+    "name": "Blumenkohl-Reis-Pfanne",
+    "description": "Blumenkohl-Reis-Pfanne – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "International",
+    "categories": [
+      "Reis",
+      "Resteverwertung"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "blumenkohl",
+        "amount": 500,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "reis",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "erbsen",
+        "amount": 150,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "karotte",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "curry",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:reis}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "reis"
+        ]
+      },
+      {
+        "text": "{{ing:blumenkohl}} klein teilen und {{ing:karotte}} würfeln. Beides in {{ing:rapsoel}} 8 Minuten braten.",
+        "ingredientRefs": [
+          "blumenkohl",
+          "karotte",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:erbsen}}, {{ing:curry}} und {{ing:salz}} zugeben und 5 Minuten erhitzen.",
+        "ingredientRefs": [
+          "erbsen",
+          "curry",
+          "salz"
+        ]
+      },
+      {
+        "text": "Den {{ing:reis}} unterheben.",
+        "ingredientRefs": [
+          "reis"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r26",
+    "name": "Edamame-Reisnudel-Bowl",
+    "description": "Edamame-Reisnudel-Bowl – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Koreanisch",
+    "categories": [
+      "Bowls",
+      "asiatisch"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 15,
+    "ingredients": [
+      {
+        "ingredientId": "reisnudeln",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "edamame",
+        "amount": 180,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "gurke",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "karotte",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "sojasosse",
+        "amount": 1.5,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "sriracha",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "ingwer",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:reisnudeln}} nach Packungsangabe garen und abkühlen lassen.",
+        "ingredientRefs": [
+          "reisnudeln"
+        ]
+      },
+      {
+        "text": "{{ing:edamame}} 5 Minuten garen. {{ing:gurke}} und {{ing:karotte}} fein schneiden.",
+        "ingredientRefs": [
+          "edamame",
+          "gurke",
+          "karotte"
+        ]
+      },
+      {
+        "text": "Alles mit {{ing:sojasosse}}, {{ing:sriracha}} und {{ing:ingwer}} mischen. Produktkennzeichnung der Sojasoße prüfen.",
+        "ingredientRefs": [
+          "sojasosse",
+          "sriracha",
+          "ingwer"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r27",
+    "name": "Brokkoli-Kichererbsen-Airfryer",
+    "description": "Brokkoli-Kichererbsen-Airfryer – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "International",
+    "categories": [
+      "Airfryer",
+      "Bowls"
+    ],
+    "servings": 2,
+    "prepTime": 10,
+    "cookTime": 18,
+    "ingredients": [
+      {
+        "ingredientId": "brokkoli",
+        "amount": 400,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kichererbsen",
+        "amount": 240,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1.5,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "paprikapulver",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauchpulver",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:brokkoli}} und {{ing:kichererbsen}} mit {{ing:rapsoel}}, {{ing:paprikapulver}}, {{ing:knoblauchpulver}} und {{ing:salz}} mischen.",
+        "ingredientRefs": [
+          "brokkoli",
+          "kichererbsen",
+          "rapsoel",
+          "paprikapulver",
+          "knoblauchpulver",
+          "salz"
+        ]
+      },
+      {
+        "text": "Im Airfryer bei 190 °C etwa 15–18 Minuten garen und zweimal schütteln.",
+        "ingredientRefs": []
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r28",
+    "name": "Spinat-Kichererbsen-Curry",
+    "description": "Spinat-Kichererbsen-Curry – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Indisch",
+    "categories": [
+      "Currys",
+      "unter 30 Minuten"
+    ],
+    "servings": 2,
+    "prepTime": 8,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "spinat",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kichererbsen",
+        "amount": 240,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "kokosmilch",
+        "amount": 300,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "garam-masala",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "kurkuma",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "rapsoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:zwiebel}} würfeln und in {{ing:rapsoel}} 3 Minuten anbraten.",
+        "ingredientRefs": [
+          "zwiebel",
+          "rapsoel"
+        ]
+      },
+      {
+        "text": "{{ing:garam-masala}} und {{ing:kurkuma}} 30 Sekunden mitrösten.",
+        "ingredientRefs": [
+          "garam-masala",
+          "kurkuma"
+        ]
+      },
+      {
+        "text": "{{ing:kichererbsen}} und {{ing:kokosmilch}} zugeben und 10 Minuten köcheln.",
+        "ingredientRefs": [
+          "kichererbsen",
+          "kokosmilch"
+        ]
+      },
+      {
+        "text": "{{ing:spinat}} unterheben und weitere 3–4 Minuten garen.",
+        "ingredientRefs": [
+          "spinat"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r29",
+    "name": "Kartoffel-Gurken-Salat mit Kräutern",
+    "description": "Kartoffel-Gurken-Salat mit Kräutern – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Deutsch",
+    "categories": [
+      "Salate",
+      "Kartoffeln"
+    ],
+    "servings": 2,
+    "prepTime": 15,
+    "cookTime": 20,
+    "ingredients": [
+      {
+        "ingredientId": "kartoffeln",
+        "amount": 600,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "gurke",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "fruehlingszwiebel",
+        "amount": 2,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 2,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "zitronensaft",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      },
+      {
+        "ingredientId": "dill",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "salz",
+        "amount": 0.5,
+        "unit": "TL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:kartoffeln}} in Salzwasser etwa 18–20 Minuten garen, abgießen und in Scheiben schneiden.",
+        "ingredientRefs": [
+          "kartoffeln"
+        ]
+      },
+      {
+        "text": "{{ing:gurke}} und {{ing:fruehlingszwiebel}} schneiden und zu den Kartoffeln geben.",
+        "ingredientRefs": [
+          "gurke",
+          "fruehlingszwiebel"
+        ]
+      },
+      {
+        "text": "{{ing:olivenoel}}, {{ing:zitronensaft}}, {{ing:dill}} und {{ing:salz}} verrühren und unterheben.",
+        "ingredientRefs": [
+          "olivenoel",
+          "zitronensaft",
+          "dill",
+          "salz"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  },
+  {
+    "id": "r30",
+    "name": "Pilz-Linsen-Bolognese",
+    "description": "Pilz-Linsen-Bolognese – einfaches Basisrezept für den Küchenalltag.",
+    "cuisine": "Italienisch",
+    "categories": [
+      "Pasta",
+      "Resteverwertung"
+    ],
+    "servings": 3,
+    "prepTime": 12,
+    "cookTime": 30,
+    "ingredients": [
+      {
+        "ingredientId": "pasta",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "champignons",
+        "amount": 300,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "rote-linsen",
+        "amount": 130,
+        "unit": "g",
+        "optional": false
+      },
+      {
+        "ingredientId": "passierte-tomaten",
+        "amount": 500,
+        "unit": "ml",
+        "optional": false
+      },
+      {
+        "ingredientId": "zwiebel",
+        "amount": 1,
+        "unit": "Stück",
+        "optional": false
+      },
+      {
+        "ingredientId": "knoblauch",
+        "amount": 2,
+        "unit": "Zehe",
+        "optional": false
+      },
+      {
+        "ingredientId": "oregano",
+        "amount": 1,
+        "unit": "TL",
+        "optional": false
+      },
+      {
+        "ingredientId": "olivenoel",
+        "amount": 1,
+        "unit": "EL",
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "{{ing:pasta}} nach Packungsangabe garen.",
+        "ingredientRefs": [
+          "pasta"
+        ]
+      },
+      {
+        "text": "{{ing:champignons}} sehr fein hacken. {{ing:zwiebel}} und {{ing:knoblauch}} ebenfalls hacken.",
+        "ingredientRefs": [
+          "champignons",
+          "zwiebel",
+          "knoblauch"
+        ]
+      },
+      {
+        "text": "{{ing:olivenoel}} erhitzen und Pilze, Zwiebel und Knoblauch 7 Minuten kräftig braten.",
+        "ingredientRefs": [
+          "olivenoel"
+        ]
+      },
+      {
+        "text": "{{ing:rote-linsen}}, {{ing:passierte-tomaten}} und {{ing:oregano}} zugeben und 18 Minuten köcheln.",
+        "ingredientRefs": [
+          "rote-linsen",
+          "passierte-tomaten",
+          "oregano"
+        ]
+      },
+      {
+        "text": "Mit der {{ing:pasta}} servieren.",
+        "ingredientRefs": [
+          "pasta"
+        ]
+      }
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "difficulty": "Einfach",
+    "favorite": false,
+    "source": {
+      "type": "internal",
+      "provider": "SicherKochen"
+    },
+    "createdAt": "2026-08-25T00:00:00.000Z"
+  }
+]

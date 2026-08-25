@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "milch",
+      "label": "Milch/Milchprotein",
+      "aliases": [
+        "Milch",
+        "Milcheiweiß",
+        "Milchprotein",
+        "Molke",
+        "Molkenpulver",
+        "Casein",
+        "Kasein",
+        "Kaseinat",
+        "Milchpulver",
+        "Magermilchpulver",
+        "Sahne",
+        "Rahm",
+        "Butter",
+        "Buttermilch",
+        "Käse",
+        "Joghurt",
+        "Quark",
+        "Whey"
+      ]
+    },
+    {
+      "id": "laktose",
+      "label": "Laktose",
+      "aliases": [
+        "Laktose",
+        "Milchzucker"
+      ]
+    },
+    {
+      "id": "ei",
+      "label": "Ei",
+      "aliases": [
+        "Ei",
+        "Eier",
+        "Eigelb",
+        "Eiweiß",
+        "Eiklar",
+        "Vollei",
+        "Eipulver",
+        "Albumin",
+        "Mayonnaise"
+      ]
+    },
+    {
+      "id": "gluten",
+      "label": "Gluten",
+      "aliases": [
+        "Gluten",
+        "Weizen",
+        "Dinkel",
+        "Roggen",
+        "Gerste",
+        "Hafer",
+        "Couscous",
+        "Bulgur",
+        "Seitan",
+        "Paniermehl",
+        "Semmelbrösel",
+        "Nudeln",
+        "Pasta"
+      ]
+    },
+    {
+      "id": "weizen",
+      "label": "Weizen",
+      "aliases": [
+        "Weizen",
+        "Weizenmehl",
+        "Hartweizen",
+        "Hartweizengrieß",
+        "Dinkel",
+        "Couscous",
+        "Bulgur"
+      ]
+    },
+    {
+      "id": "erdnuss",
+      "label": "Erdnuss",
+      "aliases": [
+        "Erdnuss",
+        "Erdnüsse",
+        "Erdnussbutter",
+        "Peanut"
+      ]
+    },
+    {
+      "id": "schalenfruechte",
+      "label": "Schalenfrüchte/Nüsse",
+      "aliases": [
+        "Haselnuss",
+        "Walnuss",
+        "Mandel",
+        "Cashew",
+        "Pistazie",
+        "Pekannuss",
+        "Macadamia",
+        "Paranuss",
+        "Marzipan"
+      ]
+    },
+    {
+      "id": "soja",
+      "label": "Soja",
+      "aliases": [
+        "Soja",
+        "Sojabohne",
+        "Tofu",
+        "Tempeh",
+        "Edamame",
+        "Miso",
+        "Sojasoße",
+        "Sojasauce"
+      ]
+    },
+    {
+      "id": "fisch",
+      "label": "Fisch",
+      "aliases": [
+        "Fisch",
+        "Lachs",
+        "Thunfisch",
+        "Kabeljau",
+        "Forelle",
+        "Sardelle",
+        "Sardine",
+        "Fischsoße",
+        "Fischsauce"
+      ]
+    },
+    {
+      "id": "krebstiere",
+      "label": "Krebstiere",
+      "aliases": [
+        "Garnele",
+        "Shrimp",
+        "Prawn",
+        "Krabbe",
+        "Hummer",
+        "Scampi",
+        "Languste"
+      ]
+    },
+    {
+      "id": "weichtiere",
+      "label": "Weichtiere",
+      "aliases": [
+        "Muschel",
+        "Auster",
+        "Tintenfisch",
+        "Oktopus",
+        "Calamari",
+        "Schnecke"
+      ]
+    },
+    {
+      "id": "sellerie",
+      "label": "Sellerie",
+      "aliases": [
+        "Sellerie",
+        "Knollensellerie",
+        "Staudensellerie",
+        "Selleriesalz"
+      ]
+    },
+    {
+      "id": "senf",
+      "label": "Senf",
+      "aliases": [
+        "Senf",
+        "Senfsaat",
+        "Senfkorn",
+        "Senfpulver"
+      ]
+    },
+    {
+      "id": "sesam",
+      "label": "Sesam",
+      "aliases": [
+        "Sesam",
+        "Tahin",
+        "Tahini"
+      ]
+    },
+    {
+      "id": "lupine",
+      "label": "Lupine",
+      "aliases": [
+        "Lupine",
+        "Lupinenmehl",
+        "Lupinenprotein"
+      ]
+    },
+    {
+      "id": "sulfite",
+      "label": "Sulfite",
+      "aliases": [
+        "Sulfit",
+        "Sulfite",
+        "Schwefeldioxid",
+        "E220",
+        "E221",
+        "E222",
+        "E223",
+        "E224",
+        "E226",
+        "E227",
+        "E228"
+      ]
+    }
+  ],
+  "ambiguousProductTerms": [
+    "Gewürzmischung",
+    "Brühe",
+    "Bouillon",
+    "Soße",
+    "Sauce",
+    "Pesto",
+    "Currypaste",
+    "Fertigprodukt",
+    "Aroma",
+    "Würze",
+    "Proteinprodukt",
+    "veganes Ersatzprodukt",
+    "Kochcreme",
+    "Pflanzendrink",
+    "Ersatzprodukt"
+  ]
+}

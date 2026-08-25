@@ -1,0 +1,103 @@
+{
+  "country": "DE",
+  "note": "Vereinfachter Saisonkalender für die Priorisierung; regionale Verfügbarkeit kann abweichen.",
+  "months": {
+    "1": [
+      "kartoffeln",
+      "karotte",
+      "lauch",
+      "rosenkohl",
+      "weisskohl",
+      "rotkohl"
+    ],
+    "2": [
+      "kartoffeln",
+      "karotte",
+      "lauch",
+      "rosenkohl",
+      "weisskohl",
+      "rotkohl"
+    ],
+    "3": [
+      "kartoffeln",
+      "karotte",
+      "lauch",
+      "spinat"
+    ],
+    "4": [
+      "spinat",
+      "fruehlingszwiebel",
+      "lauch"
+    ],
+    "5": [
+      "spinat",
+      "fruehlingszwiebel",
+      "erbsen"
+    ],
+    "6": [
+      "zucchini",
+      "gurke",
+      "tomate",
+      "erbsen",
+      "gruene-bohnen",
+      "beeren"
+    ],
+    "7": [
+      "tomate",
+      "paprika",
+      "zucchini",
+      "aubergine",
+      "gurke",
+      "gruene-bohnen",
+      "beeren",
+      "pfirsich",
+      "nektarine"
+    ],
+    "8": [
+      "tomate",
+      "paprika",
+      "zucchini",
+      "aubergine",
+      "gurke",
+      "gruene-bohnen",
+      "beeren",
+      "pfirsich",
+      "nektarine",
+      "mais"
+    ],
+    "9": [
+      "paprika",
+      "zucchini",
+      "aubergine",
+      "kuerbis",
+      "mais",
+      "apfel",
+      "birne"
+    ],
+    "10": [
+      "kuerbis",
+      "kartoffeln",
+      "karotte",
+      "lauch",
+      "apfel",
+      "birne",
+      "rosenkohl"
+    ],
+    "11": [
+      "kartoffeln",
+      "karotte",
+      "lauch",
+      "rosenkohl",
+      "weisskohl",
+      "rotkohl"
+    ],
+    "12": [
+      "kartoffeln",
+      "karotte",
+      "lauch",
+      "rosenkohl",
+      "weisskohl",
+      "rotkohl"
+    ]
+  }
+}

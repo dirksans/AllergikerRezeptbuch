@@ -1,0 +1,2178 @@
+[
+  {
+    "id": "paprika",
+    "name": "Paprika",
+    "aliases": [
+      "Paprika rot",
+      "Paprikaschote"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 31,
+      "protein": 1,
+      "carbs": 6,
+      "fat": 0.3,
+      "fiber": 2.1
+    }
+  },
+  {
+    "id": "zucchini",
+    "name": "Zucchini",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 17,
+      "protein": 1.2,
+      "carbs": 3.1,
+      "fat": 0.3,
+      "fiber": 1
+    }
+  },
+  {
+    "id": "aubergine",
+    "name": "Aubergine",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 6,
+    "nutritionPer100g": {
+      "kcal": 25,
+      "protein": 1,
+      "carbs": 6,
+      "fat": 0.2,
+      "fiber": 3
+    }
+  },
+  {
+    "id": "tomate",
+    "name": "Tomate",
+    "aliases": [
+      "Tomaten",
+      "Datteltomaten",
+      "Cherrytomaten"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 18,
+      "protein": 0.9,
+      "carbs": 3.9,
+      "fat": 0.2,
+      "fiber": 1.2
+    }
+  },
+  {
+    "id": "gurke",
+    "name": "Gurke",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 15,
+      "protein": 0.7,
+      "carbs": 3.6,
+      "fat": 0.1,
+      "fiber": 0.5
+    }
+  },
+  {
+    "id": "karotte",
+    "name": "Karotte",
+    "aliases": [
+      "Möhre",
+      "Möhren"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 14,
+    "nutritionPer100g": {
+      "kcal": 41,
+      "protein": 0.9,
+      "carbs": 9.6,
+      "fat": 0.2,
+      "fiber": 2.8
+    }
+  },
+  {
+    "id": "brokkoli",
+    "name": "Brokkoli",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 34,
+      "protein": 2.8,
+      "carbs": 6.6,
+      "fat": 0.4,
+      "fiber": 2.6
+    }
+  },
+  {
+    "id": "blumenkohl",
+    "name": "Blumenkohl",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 25,
+      "protein": 1.9,
+      "carbs": 5,
+      "fat": 0.3,
+      "fiber": 2
+    }
+  },
+  {
+    "id": "erbsen",
+    "name": "Erbsen",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 4,
+    "nutritionPer100g": {
+      "kcal": 81,
+      "protein": 5.4,
+      "carbs": 14.5,
+      "fat": 0.4,
+      "fiber": 5.1
+    }
+  },
+  {
+    "id": "gruene-bohnen",
+    "name": "Grüne Bohnen",
+    "aliases": [
+      "Bohnen grün"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 31,
+      "protein": 1.8,
+      "carbs": 7,
+      "fat": 0.2,
+      "fiber": 3.4
+    }
+  },
+  {
+    "id": "spinat",
+    "name": "Spinat",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 4,
+    "nutritionPer100g": {
+      "kcal": 23,
+      "protein": 2.9,
+      "carbs": 3.6,
+      "fat": 0.4,
+      "fiber": 2.2
+    }
+  },
+  {
+    "id": "champignons",
+    "name": "Champignons",
+    "aliases": [
+      "Pilze"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 22,
+      "protein": 3.1,
+      "carbs": 3.3,
+      "fat": 0.3,
+      "fiber": 1
+    }
+  },
+  {
+    "id": "mais",
+    "name": "Mais",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 4,
+    "nutritionPer100g": {
+      "kcal": 86,
+      "protein": 3.4,
+      "carbs": 19,
+      "fat": 1.2,
+      "fiber": 2.7
+    }
+  },
+  {
+    "id": "kartoffeln",
+    "name": "Kartoffeln",
+    "aliases": [
+      "Kartoffel"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 77,
+      "protein": 2,
+      "carbs": 17,
+      "fat": 0.1,
+      "fiber": 2.2
+    }
+  },
+  {
+    "id": "suesskartoffeln",
+    "name": "Süßkartoffeln",
+    "aliases": [
+      "Süßkartoffel"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 21,
+    "nutritionPer100g": {
+      "kcal": 86,
+      "protein": 1.6,
+      "carbs": 20.1,
+      "fat": 0.1,
+      "fiber": 3
+    }
+  },
+  {
+    "id": "zwiebel",
+    "name": "Zwiebel",
+    "aliases": [
+      "Zwiebeln"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 40,
+      "protein": 1.1,
+      "carbs": 9.3,
+      "fat": 0.1,
+      "fiber": 1.7
+    }
+  },
+  {
+    "id": "knoblauch",
+    "name": "Knoblauch",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "Zehe",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 149,
+      "protein": 6.4,
+      "carbs": 33,
+      "fat": 0.5,
+      "fiber": 2.1
+    }
+  },
+  {
+    "id": "fruehlingszwiebel",
+    "name": "Frühlingszwiebeln",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 32,
+      "protein": 1.8,
+      "carbs": 7.3,
+      "fat": 0.2,
+      "fiber": 2.6
+    }
+  },
+  {
+    "id": "kuerbis",
+    "name": "Kürbis",
+    "aliases": [
+      "Hokkaido"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 14,
+    "nutritionPer100g": {
+      "kcal": 26,
+      "protein": 1,
+      "carbs": 6.5,
+      "fat": 0.1,
+      "fiber": 0.5
+    }
+  },
+  {
+    "id": "lauch",
+    "name": "Lauch",
+    "aliases": [
+      "Porree"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 61,
+      "protein": 1.5,
+      "carbs": 14,
+      "fat": 0.3,
+      "fiber": 1.8
+    }
+  },
+  {
+    "id": "rosenkohl",
+    "name": "Rosenkohl",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 43,
+      "protein": 3.4,
+      "carbs": 9,
+      "fat": 0.3,
+      "fiber": 3.8
+    }
+  },
+  {
+    "id": "weisskohl",
+    "name": "Weißkohl",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 21,
+    "nutritionPer100g": {
+      "kcal": 25,
+      "protein": 1.3,
+      "carbs": 5.8,
+      "fat": 0.1,
+      "fiber": 2.5
+    }
+  },
+  {
+    "id": "rotkohl",
+    "name": "Rotkohl",
+    "aliases": [],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 21,
+    "nutritionPer100g": {
+      "kcal": 31,
+      "protein": 1.4,
+      "carbs": 7.4,
+      "fat": 0.2,
+      "fiber": 2.1
+    }
+  },
+  {
+    "id": "sellerie",
+    "name": "Sellerie",
+    "aliases": [
+      "Knollensellerie",
+      "Staudensellerie"
+    ],
+    "category": "Gemüse",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 14,
+    "nutritionPer100g": {
+      "kcal": 16,
+      "protein": 0.7,
+      "carbs": 3,
+      "fat": 0.2,
+      "fiber": 1.6
+    }
+  },
+  {
+    "id": "banane",
+    "name": "Banane",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 89,
+      "protein": 1.1,
+      "carbs": 22.8,
+      "fat": 0.3,
+      "fiber": 2.6
+    }
+  },
+  {
+    "id": "apfel",
+    "name": "Apfel",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 21,
+    "nutritionPer100g": {
+      "kcal": 52,
+      "protein": 0.3,
+      "carbs": 13.8,
+      "fat": 0.2,
+      "fiber": 2.4
+    }
+  },
+  {
+    "id": "beeren",
+    "name": "Beeren",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 3,
+    "nutritionPer100g": {
+      "kcal": 50,
+      "protein": 0.8,
+      "carbs": 12,
+      "fat": 0.4,
+      "fiber": 4
+    }
+  },
+  {
+    "id": "mango",
+    "name": "Mango",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 60,
+      "protein": 0.8,
+      "carbs": 15,
+      "fat": 0.4,
+      "fiber": 1.6
+    }
+  },
+  {
+    "id": "pfirsich",
+    "name": "Pfirsich",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 39,
+      "protein": 0.9,
+      "carbs": 9.5,
+      "fat": 0.3,
+      "fiber": 1.5
+    }
+  },
+  {
+    "id": "nektarine",
+    "name": "Nektarine",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 5,
+    "nutritionPer100g": {
+      "kcal": 44,
+      "protein": 1.1,
+      "carbs": 10.6,
+      "fat": 0.3,
+      "fiber": 1.7
+    }
+  },
+  {
+    "id": "birne",
+    "name": "Birne",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 57,
+      "protein": 0.4,
+      "carbs": 15,
+      "fat": 0.1,
+      "fiber": 3.1
+    }
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 14,
+    "nutritionPer100g": {
+      "kcal": 47,
+      "protein": 0.9,
+      "carbs": 11.8,
+      "fat": 0.1,
+      "fiber": 2.4
+    }
+  },
+  {
+    "id": "haehnchen",
+    "name": "Hähnchenbrust",
+    "aliases": [
+      "Hähnchen",
+      "Hähnchenbrustfilet"
+    ],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": false,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 2,
+    "nutritionPer100g": {
+      "kcal": 120,
+      "protein": 23,
+      "carbs": 0,
+      "fat": 2.6,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "rind",
+    "name": "Rindfleisch",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": false,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 2,
+    "nutritionPer100g": {
+      "kcal": 200,
+      "protein": 26,
+      "carbs": 0,
+      "fat": 10,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "hackfleisch",
+    "name": "Gemischtes Hackfleisch",
+    "aliases": [
+      "Hackfleisch"
+    ],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": false,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 1,
+    "nutritionPer100g": {
+      "kcal": 250,
+      "protein": 17,
+      "carbs": 0,
+      "fat": 20,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "lachs",
+    "name": "Lachs",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [
+      "Fisch"
+    ],
+    "vegetarian": false,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 2,
+    "nutritionPer100g": {
+      "kcal": 208,
+      "protein": 20,
+      "carbs": 0,
+      "fat": 13,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "fischfilet",
+    "name": "Fischfilet",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [
+      "Fisch"
+    ],
+    "vegetarian": false,
+    "vegan": false,
+    "storage": "Tiefkühler",
+    "typicalShelfLifeDays": 120,
+    "nutritionPer100g": {
+      "kcal": 110,
+      "protein": 23,
+      "carbs": 0,
+      "fat": 2,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "tofu",
+    "name": "Tofu",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [
+      "Soja"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 144,
+      "protein": 17,
+      "carbs": 3,
+      "fat": 9,
+      "fiber": 2.3
+    }
+  },
+  {
+    "id": "raeuchertofu",
+    "name": "Räuchertofu",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [
+      "Soja"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 7,
+    "nutritionPer100g": {
+      "kcal": 170,
+      "protein": 18,
+      "carbs": 3,
+      "fat": 10,
+      "fiber": 2
+    }
+  },
+  {
+    "id": "edamame",
+    "name": "Edamame",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [
+      "Soja"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Tiefkühler",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 121,
+      "protein": 11.9,
+      "carbs": 8.9,
+      "fat": 5.2,
+      "fiber": 5.2
+    }
+  },
+  {
+    "id": "kichererbsen",
+    "name": "Kichererbsen",
+    "aliases": [
+      "Kichererbsen Dose"
+    ],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 164,
+      "protein": 8.9,
+      "carbs": 27.4,
+      "fat": 2.6,
+      "fiber": 7.6
+    }
+  },
+  {
+    "id": "kidneybohnen",
+    "name": "Kidneybohnen",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 127,
+      "protein": 8.7,
+      "carbs": 22.8,
+      "fat": 0.5,
+      "fiber": 6.4
+    }
+  },
+  {
+    "id": "schwarze-bohnen",
+    "name": "Schwarze Bohnen",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 132,
+      "protein": 8.9,
+      "carbs": 23.7,
+      "fat": 0.5,
+      "fiber": 8.7
+    }
+  },
+  {
+    "id": "berglinsen",
+    "name": "Berglinsen",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 330,
+      "protein": 24,
+      "carbs": 49,
+      "fat": 1.5,
+      "fiber": 11
+    }
+  },
+  {
+    "id": "rote-linsen",
+    "name": "Rote Linsen",
+    "aliases": [],
+    "category": "Protein",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 350,
+      "protein": 25,
+      "carbs": 52,
+      "fat": 1.7,
+      "fiber": 11
+    }
+  },
+  {
+    "id": "ei",
+    "name": "Ei",
+    "aliases": [
+      "Eier"
+    ],
+    "category": "Protein",
+    "defaultUnit": "Stück",
+    "allergens": [
+      "Ei"
+    ],
+    "vegetarian": true,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 28,
+    "nutritionPer100g": {
+      "kcal": 143,
+      "protein": 13,
+      "carbs": 0.7,
+      "fat": 9.5,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "reis",
+    "name": "Reis",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 350,
+      "protein": 7,
+      "carbs": 78,
+      "fat": 0.7,
+      "fiber": 1.3
+    }
+  },
+  {
+    "id": "basmatireis",
+    "name": "Basmatireis",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 350,
+      "protein": 8,
+      "carbs": 77,
+      "fat": 0.8,
+      "fiber": 1.2
+    }
+  },
+  {
+    "id": "jasminreis",
+    "name": "Jasminreis",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 350,
+      "protein": 7,
+      "carbs": 78,
+      "fat": 0.6,
+      "fiber": 1
+    }
+  },
+  {
+    "id": "vollkornreis",
+    "name": "Vollkornreis",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 350,
+      "protein": 8,
+      "carbs": 72,
+      "fat": 2.5,
+      "fiber": 3.5
+    }
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 350,
+      "protein": 12,
+      "carbs": 72,
+      "fat": 1.5,
+      "fiber": 3.2
+    }
+  },
+  {
+    "id": "vollkornpasta",
+    "name": "Vollkornpasta",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 340,
+      "protein": 13,
+      "carbs": 65,
+      "fat": 2.5,
+      "fiber": 8
+    }
+  },
+  {
+    "id": "gnocchi",
+    "name": "Gnocchi",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 160,
+      "protein": 4,
+      "carbs": 34,
+      "fat": 0.7,
+      "fiber": 2
+    }
+  },
+  {
+    "id": "udon",
+    "name": "Udon",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 340,
+      "protein": 10,
+      "carbs": 71,
+      "fat": 1.5,
+      "fiber": 3
+    }
+  },
+  {
+    "id": "reisnudeln",
+    "name": "Reisnudeln",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 360,
+      "protein": 6,
+      "carbs": 80,
+      "fat": 0.6,
+      "fiber": 1
+    }
+  },
+  {
+    "id": "couscous",
+    "name": "Couscous",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 376,
+      "protein": 12.8,
+      "carbs": 77,
+      "fat": 0.6,
+      "fiber": 5
+    }
+  },
+  {
+    "id": "bulgur",
+    "name": "Bulgur",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 342,
+      "protein": 12,
+      "carbs": 76,
+      "fat": 1.3,
+      "fiber": 18
+    }
+  },
+  {
+    "id": "brot",
+    "name": "Brot",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 250,
+      "protein": 9,
+      "carbs": 48,
+      "fat": 3,
+      "fiber": 6
+    }
+  },
+  {
+    "id": "haferflocken",
+    "name": "Haferflocken",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 370,
+      "protein": 13.5,
+      "carbs": 59,
+      "fat": 7,
+      "fiber": 10
+    }
+  },
+  {
+    "id": "wraps",
+    "name": "Wraps",
+    "aliases": [],
+    "category": "Kohlenhydrate",
+    "defaultUnit": "Stück",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 21,
+    "nutritionPer100g": {
+      "kcal": 310,
+      "protein": 8,
+      "carbs": 52,
+      "fat": 8,
+      "fiber": 3
+    }
+  },
+  {
+    "id": "passierte-tomaten",
+    "name": "Passierte Tomaten",
+    "aliases": [],
+    "category": "Konserven",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 30,
+      "protein": 1.4,
+      "carbs": 5,
+      "fat": 0.3,
+      "fiber": 1.5
+    }
+  },
+  {
+    "id": "stueckige-tomaten",
+    "name": "Stückige Tomaten",
+    "aliases": [],
+    "category": "Konserven",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 24,
+      "protein": 1.2,
+      "carbs": 4,
+      "fat": 0.2,
+      "fiber": 1.4
+    }
+  },
+  {
+    "id": "kokosmilch",
+    "name": "Kokosmilch",
+    "aliases": [],
+    "category": "Konserven",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 190,
+      "protein": 2,
+      "carbs": 3,
+      "fat": 19,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "tomatenmark",
+    "name": "Tomatenmark",
+    "aliases": [],
+    "category": "Konserven",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 82,
+      "protein": 4.3,
+      "carbs": 19,
+      "fat": 0.5,
+      "fiber": 4.1
+    }
+  },
+  {
+    "id": "olivenoel",
+    "name": "Olivenöl",
+    "aliases": [],
+    "category": "Öle",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 884,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 100,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "rapsoel",
+    "name": "Rapsöl",
+    "aliases": [],
+    "category": "Öle",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 884,
+      "protein": 0,
+      "carbs": 0,
+      "fat": 100,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "sojasosse",
+    "name": "Sojasoße",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "ml",
+    "allergens": [
+      "Soja",
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 53,
+      "protein": 8,
+      "carbs": 5,
+      "fat": 0.6,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "teriyaki",
+    "name": "Teriyaki-Soße",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "ml",
+    "allergens": [
+      "Soja",
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "hoisin",
+    "name": "Hoisin-Soße",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "ml",
+    "allergens": [
+      "Soja",
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "sriracha",
+    "name": "Sriracha",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "sweet-chili",
+    "name": "Sweet-Chili-Soße",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "ajvar",
+    "name": "Ajvar",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "tahin",
+    "name": "Tahin",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "g",
+    "allergens": [
+      "Sesam"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 595,
+      "protein": 17,
+      "carbs": 21,
+      "fat": 54,
+      "fiber": 9
+    }
+  },
+  {
+    "id": "pesto",
+    "name": "Pesto",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "g",
+    "allergens": [
+      "Milch",
+      "Schalenfrüchte"
+    ],
+    "vegetarian": true,
+    "vegan": false,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "currypaste",
+    "name": "Currypaste",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "haferdrink",
+    "name": "Haferdrink",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "ml",
+    "allergens": [
+      "Gluten"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 46,
+      "protein": 1,
+      "carbs": 7,
+      "fat": 1.5,
+      "fiber": 0.8
+    }
+  },
+  {
+    "id": "reisdrink",
+    "name": "Reisdrink",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 47,
+      "protein": 0.3,
+      "carbs": 9.5,
+      "fat": 1,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "pflanzencreme",
+    "name": "Pflanzliche Kochcreme",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "gemuesebruehe",
+    "name": "Gemüsebrühe",
+    "aliases": [],
+    "category": "Konserven",
+    "defaultUnit": "ml",
+    "allergens": [
+      "Sellerie"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "hefeflocken",
+    "name": "Hefeflocken",
+    "aliases": [],
+    "category": "Trockenware",
+    "defaultUnit": "g",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 340,
+      "protein": 45,
+      "carbs": 35,
+      "fat": 5,
+      "fiber": 20
+    }
+  },
+  {
+    "id": "ahornsirup",
+    "name": "Ahornsirup",
+    "aliases": [],
+    "category": "Trockenware",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 365,
+    "nutritionPer100g": {
+      "kcal": 260,
+      "protein": 0,
+      "carbs": 67,
+      "fat": 0,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "zitronensaft",
+    "name": "Zitronensaft",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "ml",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 22,
+      "protein": 0.4,
+      "carbs": 6.9,
+      "fat": 0.2,
+      "fiber": 0.3
+    }
+  },
+  {
+    "id": "salz",
+    "name": "Salz",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "pfeffer",
+    "name": "Pfeffer schwarz",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "paprikapulver",
+    "name": "Paprikapulver",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "oregano",
+    "name": "Oregano",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "basilikum",
+    "name": "Basilikum",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "thymian",
+    "name": "Thymian",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "rosmarin",
+    "name": "Rosmarin",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "curry",
+    "name": "Currypulver",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "kurkuma",
+    "name": "Kurkuma",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "kreuzkuemmel",
+    "name": "Kreuzkümmel",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "garam-masala",
+    "name": "Garam Masala",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "chili",
+    "name": "Chili",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "ingwer",
+    "name": "Ingwer",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "koriander",
+    "name": "Koriander",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "dill",
+    "name": "Dill",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "muskat",
+    "name": "Muskatnuss",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "zimt",
+    "name": "Zimt",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "nelken",
+    "name": "Nelken",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "lorbeer",
+    "name": "Lorbeer",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "wacholder",
+    "name": "Wacholder",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "bohnenkraut",
+    "name": "Bohnenkraut",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "petersilie",
+    "name": "Petersilie",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "schnittlauch",
+    "name": "Schnittlauch",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "majoran",
+    "name": "Majoran",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "salbei",
+    "name": "Salbei",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "estragon",
+    "name": "Estragon",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "fenchel",
+    "name": "Fenchelsamen",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "kardamom",
+    "name": "Kardamom",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "piment",
+    "name": "Piment",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "cayenne",
+    "name": "Cayennepfeffer",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "knoblauchpulver",
+    "name": "Knoblauchpulver",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "zwiebelpulver",
+    "name": "Zwiebelpulver",
+    "aliases": [],
+    "category": "Gewürze",
+    "defaultUnit": "TL",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Gewürze",
+    "typicalShelfLifeDays": 730,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "avocado",
+    "name": "Avocado",
+    "aliases": [],
+    "category": "Obst",
+    "defaultUnit": "Stück",
+    "allergens": [],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 160,
+      "protein": 2,
+      "carbs": 8.5,
+      "fat": 14.7,
+      "fiber": 6.7
+    }
+  },
+  {
+    "id": "feta",
+    "name": "Feta",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "g",
+    "allergens": [
+      "Milch"
+    ],
+    "vegetarian": true,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 265,
+      "protein": 14,
+      "carbs": 4,
+      "fat": 21,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "mozzarella",
+    "name": "Mozzarella",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "g",
+    "allergens": [
+      "Milch"
+    ],
+    "vegetarian": true,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 280,
+      "protein": 18,
+      "carbs": 3,
+      "fat": 22,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "joghurt",
+    "name": "Joghurt",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "g",
+    "allergens": [
+      "Milch"
+    ],
+    "vegetarian": true,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 65,
+      "protein": 3.5,
+      "carbs": 4.7,
+      "fat": 3.5,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "parmesan",
+    "name": "Parmesan",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "g",
+    "allergens": [
+      "Milch"
+    ],
+    "vegetarian": true,
+    "vegan": false,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 431,
+      "protein": 38,
+      "carbs": 4,
+      "fat": 29,
+      "fiber": 0
+    }
+  },
+  {
+    "id": "seitan",
+    "name": "Seitan",
+    "aliases": [],
+    "category": "Kühlung",
+    "defaultUnit": "g",
+    "allergens": [
+      "Gluten",
+      "Weizen"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Kühlschrank",
+    "typicalShelfLifeDays": 30,
+    "nutritionPer100g": {
+      "kcal": 141,
+      "protein": 24.7,
+      "carbs": 12.3,
+      "fat": 1.9,
+      "fiber": 0.6
+    }
+  },
+  {
+    "id": "senf",
+    "name": "Senf",
+    "aliases": [],
+    "category": "Soßen",
+    "defaultUnit": "g",
+    "allergens": [
+      "Senf"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": null
+  },
+  {
+    "id": "mandeln",
+    "name": "Mandeln",
+    "aliases": [],
+    "category": "Nüsse",
+    "defaultUnit": "g",
+    "allergens": [
+      "Schalenfrüchte"
+    ],
+    "vegetarian": true,
+    "vegan": true,
+    "storage": "Vorratsschrank",
+    "typicalShelfLifeDays": 180,
+    "nutritionPer100g": {
+      "kcal": 579,
+      "protein": 21,
+      "carbs": 22,
+      "fat": 50,
+      "fiber": 12.5
+    }
+  }
+]

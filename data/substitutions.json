@@ -1,0 +1,185 @@
+[
+  {
+    "allergen": "milch",
+    "match": [
+      "Milch",
+      "Sahne",
+      "Kochsahne"
+    ],
+    "candidates": [
+      {
+        "name": "Reisdrink bzw. Reis-Kochcreme, ausdrücklich milchfrei",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Produktkennzeichnung prüfen; Konsistenz kann abweichen."
+      },
+      {
+        "name": "Sojadrink bzw. Soja-Kochcreme, ausdrücklich milchfrei",
+        "allergens": [
+          "Soja"
+        ],
+        "ratio": 1,
+        "note": "Nicht bei Sojaallergie verwenden."
+      },
+      {
+        "name": "Haferdrink bzw. Hafer-Kochcreme, ausdrücklich milchfrei",
+        "allergens": [
+          "Gluten"
+        ],
+        "ratio": 1,
+        "note": "Bei Glutenproblemen nur geeignet gekennzeichnete Produkte verwenden."
+      }
+    ]
+  },
+  {
+    "allergen": "milch",
+    "match": [
+      "Butter",
+      "Ghee"
+    ],
+    "candidates": [
+      {
+        "name": "milchfreie Pflanzenmargarine",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Zutatenliste prüfen."
+      },
+      {
+        "name": "Rapsöl",
+        "allergens": [],
+        "ratio": 0.8,
+        "note": "Für Braten geeignet; beim Backen Konsistenz prüfen."
+      }
+    ]
+  },
+  {
+    "allergen": "milch",
+    "match": [
+      "Parmesan",
+      "Käse",
+      "Feta",
+      "Mozzarella"
+    ],
+    "candidates": [
+      {
+        "name": "milchfreie Käsealternative",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Konkretes Produkt auf Allergene und Spurenhinweise prüfen."
+      },
+      {
+        "name": "Hefeflocken",
+        "allergens": [],
+        "ratio": 0.5,
+        "note": "Für würzigen Geschmack, aber keine identische Textur."
+      }
+    ]
+  },
+  {
+    "allergen": "ei",
+    "match": [
+      "Ei",
+      "Eier"
+    ],
+    "candidates": [
+      {
+        "name": "Apfelmus als Ei-Ersatz",
+        "allergens": [],
+        "ratio": 60,
+        "unit": "g",
+        "note": "Vor allem für Backen; pro Ei etwa 60 g als Orientierung."
+      },
+      {
+        "name": "Leinsamen-Ei",
+        "allergens": [],
+        "ratio": 1,
+        "note": "1 EL gemahlene Leinsamen + 3 EL Wasser pro Ei; Produktverträglichkeit prüfen."
+      }
+    ]
+  },
+  {
+    "allergen": "gluten",
+    "match": [
+      "Pasta",
+      "Nudeln",
+      "Udon"
+    ],
+    "candidates": [
+      {
+        "name": "glutenfreie Pasta",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Nur ausdrücklich geeignet gekennzeichnetes Produkt verwenden."
+      },
+      {
+        "name": "Reisnudeln",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Garzeit an Packungsangabe anpassen."
+      }
+    ]
+  },
+  {
+    "allergen": "weizen",
+    "match": [
+      "Pasta",
+      "Nudeln",
+      "Couscous",
+      "Bulgur",
+      "Wraps"
+    ],
+    "candidates": [
+      {
+        "name": "weizenfreie, passend gekennzeichnete Alternative",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Produktkennzeichnung und individuelle Verträglichkeit prüfen."
+      }
+    ]
+  },
+  {
+    "allergen": "soja",
+    "match": [
+      "Sojasoße",
+      "Sojasauce"
+    ],
+    "candidates": [
+      {
+        "name": "sojafreie Würzsoße",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Konkretes Produkt auf weitere Allergene prüfen."
+      }
+    ]
+  },
+  {
+    "allergen": "sesam",
+    "match": [
+      "Tahin",
+      "Tahini"
+    ],
+    "candidates": [
+      {
+        "name": "Sonnenblumenkernmus",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Produktkennzeichnung prüfen."
+      }
+    ]
+  },
+  {
+    "allergen": "erdnuss",
+    "match": [
+      "Erdnussbutter",
+      "Erdnüsse"
+    ],
+    "candidates": [
+      {
+        "name": "Sonnenblumenkernmus",
+        "allergens": [],
+        "ratio": 1,
+        "note": "Produktkennzeichnung und mögliche Spuren prüfen."
+      }
+    ]
+  }
+]

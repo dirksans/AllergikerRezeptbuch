@@ -3,45 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#235347">
-  <meta name="description" content="Online-Rezeptsuche mit allergikerfreundlicher Prüfung, Anpassung und Vorratsverwaltung.">
+  <meta name="theme-color" content="#1f5d4f">
+  <meta name="description" content="SicherKochen – lokaler Küchenassistent mit Vorrat, Rezepten, Allergieprüfung, Einkauf und Wochenplanung.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SicherKochen">
+  <meta name="format-detection" content="telephone=no">
   <title>SicherKochen</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  <link rel="icon" href="./icons/icon-192.png">
-  <link rel="stylesheet" href="./styles.css?v=3.0.0">
+  <link rel="manifest" href="./manifest.webmanifest?v=3.5.0">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./css/style.css?v=3.5.0">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand" aria-label="SicherKochen Startseite">
+    <button class="brand" data-route="home" aria-label="Startseite">
       <span class="brand-mark" aria-hidden="true">SK</span>
-      <div>
-        <strong>SicherKochen</strong>
-        <small>Online-Rezepte & Vorräte</small>
-      </div>
+      <span><strong>SicherKochen</strong><small>Küchenassistent</small></span>
+    </button>
+    <div class="top-actions">
+      <span id="offlineBadge" class="offline-badge" hidden>Offline</span>
+      <button id="searchButton" class="icon-button" aria-label="Globale Suche">⌕</button>
+      <button id="installButton" class="button secondary compact" hidden>Installieren</button>
+      <button id="moreButton" class="icon-button" aria-label="Mehr und Einstellungen">⚙</button>
     </div>
-    <button id="installButton" class="button secondary compact" hidden>Installieren</button>
   </header>
 
   <main id="app" class="app-shell" tabindex="-1"></main>
 
   <nav class="bottom-nav" aria-label="Hauptnavigation">
     <button data-route="home" class="nav-item active"><span aria-hidden="true">⌂</span><small>Start</small></button>
+    <button data-route="pantry" class="nav-item"><span aria-hidden="true">▦</span><small>Vorrat</small></button>
     <button data-route="recipes" class="nav-item"><span aria-hidden="true">▤</span><small>Rezepte</small></button>
-    <button data-route="pantry" class="nav-item"><span aria-hidden="true">▦</span><small>Vorräte</small></button>
     <button data-route="shopping" class="nav-item"><span aria-hidden="true">✓</span><small>Einkauf</small></button>
-    <button data-route="people" class="nav-item"><span aria-hidden="true">☺</span><small>Personen</small></button>
-    <button data-route="settings" class="nav-item"><span aria-hidden="true">⚙</span><small>Mehr</small></button>
+    <button data-route="planning" class="nav-item"><span aria-hidden="true">▣</span><small>Planung</small></button>
   </nav>
 
-  <dialog id="modal" class="modal">
-    <div id="modalContent"></div>
-  </dialog>
-
+  <dialog id="modal" class="modal"><div id="modalContent"></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="./db.js?v=3.0.0"></script>
-  <script src="./online-recipes.js?v=3.0.0"></script>
-  <script src="./app.js?v=3.0.0"></script>
+  <script src="./js/db.js?v=3.5.0"></script>
+  <script src="./js/data.js?v=3.5.0"></script>
+  <script src="./js/allergyEngine.js?v=3.5.0"></script>
+  <script src="./js/nutrition.js?v=3.5.0"></script>
+  <script src="./js/receiptParser.js?v=3.5.0"></script>
+  <script src="./js/receiptOcr.js?v=3.5.0"></script>
+  <script src="./js/recipeEngine.js?v=3.5.0"></script>
+  <script src="./js/mealPlanner.js?v=3.5.0"></script>
+  <script src="./js/aiProvider.js?v=3.5.0"></script>
+  <script src="./js/online-recipes.js?v=3.5.0"></script>
+  <script src="./js/app.js?v=3.5.0"></script>
 </body>
 </html>
